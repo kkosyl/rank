@@ -1,0 +1,70 @@
+﻿@model Ranking.GUI.ViewModels.PlaceDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<div>
+    @Html.ActionLink("Usuń", "Delete", new { id = Model.PlaceId })
+</div>
+<div>
+    @Html.ActionLink("Wróć", "Index")
+</div>
+
+
+@Model.Country
+<br />
+@Model.Description
+<br />
+@foreach (var item in Model.Picture)
+{
+    <img src="~/@item" style="height:auto; width:auto; max-height:600px; max-width:600px" />
+    <br />
+}
+
+<br />
+@if (Model.Opinions != null)
+{
+    foreach (var item in Model.Opinions)
+    {
+        @item.Key
+        <br />
+        @item.Value.Grade
+        <br />
+        @item.Value.Content
+    }
+}
+
+@*<div>
+    @using (Html.BeginForm("AddOpinion", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Place.PlaceId }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-lg-3">
+                    @Html.LabelFor(m => m.Opinion.Nick)
+                    @Html.TextBoxFor(m => m.Opinion.Nick)
+
+                    <br />
+
+                    @Html.LabelFor(m => m.Opinion.Email)
+                    @Html.TextBoxFor(m => m.Opinion.Email)
+
+                    <br />
+
+                    @Html.LabelFor(m => m.Opinion.Content)
+                    @Html.TextAreaFor(m => m.Opinion.Content)
+                    <br />
+
+                    <br />
+                </div>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>*@

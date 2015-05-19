@@ -1,0 +1,48 @@
+﻿@model Ranking.GUI.ViewModels.AddPlaceViewModel
+
+@{
+    ViewBag.Title = "Dodaj";
+}
+
+<h2>Dodaj swój hotel</h2>
+
+@using (Html.BeginForm("AddPlace", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-lg-3">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+
+                <br />
+
+                @Html.LabelFor(m => m.Country)
+                @Html.TextBoxFor(m => m.Country)
+                <br />
+
+                @Html.LabelFor(m => m.City)
+                @Html.TextBoxFor(m => m.City)
+                <br />
+
+                @Html.LabelFor(m => m.Description)
+                @Html.TextBoxFor(m => m.Description)
+                <br />
+
+
+                @Html.LabelFor(m => m.Picture)
+                @Html.TextBoxFor(m => m.Picture, new { type = "file", multiple = "true" })
+                <br />
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Dodaj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Wróć", "Index")
+</div>

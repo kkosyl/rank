@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Ranking.GUI.ViewModels.PlaceListViewModel>
+@{
+    ViewBag.Title = "Ranking";
+}
+
+<div id="carousel-generic" class="carousel slide">
+
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <li data-target="#carousel-generic" data-slide-to="@i" class="@(i == 0 ? "active" : string.Empty)"></li>
+        }
+    </ol>
+    <div class="carousel-inner">
+        @{
+            var j = 0;
+            foreach (var item in Model)
+            {
+                var itemClass = j++ == 0 ? "active" : "";
+                <div class="item @itemClass">
+                    <img src="~/@item.Picture" />
+                    <div class="carousel-caption">
+                        <span class="hotelName">@item.Description</span>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+
+</div>
+<hr />
+
+<div class="city">
+
+    <h3>Polska:</h3>
+    <li><a href="#">&rsaquo;&nbsp;Kraków</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li>
+
+    <h3>Świat:</h3>
+    <li><a href="#">&rsaquo;&nbsp;Egipt</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li>
+    <li><a href="#">&rsaquo;&nbsp;Włochy</a></li>
+
+</div>
+
+
+
+<div class="topHotel">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })"><img src="~/@item.Picture" /></a>
+        @item.Description
+        <br />
+    }
+
+    </div>
