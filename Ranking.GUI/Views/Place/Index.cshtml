@@ -18,9 +18,10 @@
             {
                 var itemClass = j++ == 0 ? "active" : "";
                 <div class="item @itemClass">
-                    <img src="~/@item.Picture" />
+                    <img src="@item.Picture" />
                     <div class="carousel-caption">
-                        <span class="hotelName">@item.Description</span>
+                        <span class="hotelName">@item.Name</span>
+                        <p>@item.City</p>
                     </div>
                 </div>
             }
@@ -35,30 +36,36 @@
     </a>
 
 </div>
-<hr />
 
-<div class="city">
 
-    <h3>Polska:</h3>
-    <li><a href="#">&rsaquo;&nbsp;Kraków</a></li>
-    <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li>
-    <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li>
-
-    <h3>Świat:</h3>
-    <li><a href="#">&rsaquo;&nbsp;Egipt</a></li>
-    <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li>
-    <li><a href="#">&rsaquo;&nbsp;Włochy</a></li>
-
+<div class="mid">
+    @foreach (var item in @Model)
+    {
+        <div id="midHotel">
+            <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
+                <img src="@item.Picture" />
+                <p>
+                    <span class="hotelName">@item.Name</span><br />
+                    @item.Description
+                </p>
+            </a>
+        </div>
+    }
 </div>
 
 
 
-<div class="topHotel">
-    @foreach (var item in Model)
-    {
-        <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })"><img src="~/@item.Picture" /></a>
-        @item.Description
-        <br />
-    }
 
-    </div>
+<div id="city">
+
+    <h3>Polska:</h3>
+    <li><a href="#">&rsaquo;&nbsp;Kraków</a></li><br />
+    <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li><br />
+    <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li><br />
+
+    <h3>Świat:</h3>
+    <li><a href="#">&rsaquo;&nbsp;Egipt</a></li><br />
+    <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li><br />
+    <li><a href="#">&rsaquo;&nbsp;Włochy</a></li><br />
+
+</div>

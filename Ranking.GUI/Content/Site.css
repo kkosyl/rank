@@ -1,0 +1,250 @@
+﻿/*FONTS*/
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-MediumItalic';
+    src: url('../fonts/Roboto-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+
+
+
+
+
+
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+        display: inline-block;
+        padding-top: 30px;
+        width: 100%;
+    }*/
+
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border-color: #16A2A2 !important;
+}
+
+html, body {
+    font-family: "Arial" serif;
+    background: #5F6D6B !important;
+    margin: 2% 10% 2% 10%;
+}
+
+.content {
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+}
+
+.wrap {
+    width: auto;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0px 0px 10px;
+}
+
+
+.header {
+    background: #424242;
+    padding: 39px 18px;
+    height: 150px;
+}
+
+.logo {
+    float: left;
+}
+
+
+/*-----Menu-----*/
+#navbar #inputSearch {
+    margin-top: 1.25%;
+    margin-left: 15%;
+    display: inline-block;
+    width: 350px;
+    height: 40px;
+}
+@media(max-width:1350px) {
+    #navbar #inputSearch {
+        margin-top: 1% !important;
+        display: inline-block;
+        margin-left: 15%;
+        width: 70% !important;
+    }
+}
+/*-----Menu-----*/
+
+
+
+/*-----Carousel-----*/
+#carousel-generic {
+    width: auto;
+    height: 400px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    left: 1%;
+    right: 1%;
+}
+
+    #carousel-generic .item img {
+        margin-left: 10%;
+        height: 350px;
+        max-width: 500px;
+    }
+
+.carousel-indicators .ol {
+    color: #118085 !important;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    font-family: Roboto-Light;
+}
+
+.hotelName {
+    font-family: Roboto-Bold;
+    font-size: 30px;
+    color: black;
+}
+
+@media (max-width: 960px) {
+    #carousel-generic {
+        display: none;
+    }
+}
+
+/*-----Carousel-----*/
+
+
+/*-----Left-----*/
+@media (min-width: 960px) {
+    #city {
+        width: 25%;
+        max-width: 400px;
+        background-color: #424242;
+        min-height: 550px;
+        padding-top: 10px;
+        padding-left: 5%;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+
+        #city h3 {
+            font-family: Roboto-Bold;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        #city li {
+            display: inherit;
+            margin-left: 20px;
+        }
+
+            #city li a {
+                color: #fff;
+                font-size: 15px;
+                line-height: 2;
+                font-family: Roboto-MediumItalic;
+            }
+
+                #city li a:hover {
+                    color: #0B6F74;
+                    text-decoration: none;
+                }
+}
+
+@media (max-width: 960px) {
+    #city a, li, h3 {
+       display: none;
+    }
+}
+
+/*-----Center-----*/
+
+@media (max-width: 960px) {
+    .mid {
+        width: 100% !important;
+        padding-left: 5%;
+        padding-right: 10%;
+
+        float: none !important;
+    }
+}
+
+.mid {
+    width: 63%;
+    min-height: 500px;
+    display: inline-block;
+    float: right;
+    margin-left: 2%;
+    margin-right: 10%;
+}
+
+    .mid #midHotel {
+        height: 150px;
+        width: 100%;
+        border-bottom: 1px rgba(22, 162, 162, 0.48) solid;
+        display: block;
+    }
+
+        .mid #midHotel p {
+            color: black;
+            display: inline-block;
+        }
+
+        .mid #midHotel img {
+            height: 99px;
+            display: inline-block;
+            margin-top: 40px;
+        }
+
+        .mid #midHotel .hotelName {
+            font-size: 20px;
+            display: inline-block;
+        }
+
+        .mid #midHotel a:hover {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(22, 162, 162, 0.22);
+            text-decoration: none;
+        }
+
+
+/*-----footer-----*/
+.footer {
+    background-color: #424242;
+    height: 150px;
+    width: auto;
+    color: white;
+}

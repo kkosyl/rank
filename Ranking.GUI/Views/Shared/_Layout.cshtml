@@ -4,48 +4,53 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    
+
 </head>
 
-
-
-
-
 <body>
-   
+
     <div class="wrap">
         <div class="header">
             <div class="logo"><a href="~/Place/Index"><img src="~/Content/Images/Logo.png" /></a></div>
             <div class="clear"> </div>
         </div>
 
-        <div class="top-menu">
-            <ul>
-                <li class="active"><a href="~/Place/Index">Home</a></li>
-                <li><a href="~/Place/AddPlace">Dodaj miejsce</a></li>
-                <li><a href="~/Place/Top10">Top 10</a></li>
-                <li><a href="~/Place/Search">Wyszukaj</a></li>
-                <input id="inputSearch" type="text" placeholder="Podaj nazwę lub adres" />
-                <div class="clear"> </div>
-            </ul>
-        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/Place/Index">Home</a></li>
+                        <li><a href="~/Place/AddPlace">Dodaj miejsce</a></li>
+                        <li><a href="~/Place/Top10">Top 10</a></li>
+                        <li><a href="~/Place/Search">Wyszukaj</a></li>
+                        <li><input id="inputSearch" type="text" placeholder="Podaj nazwę lub adres" /></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <div class="content">
 
-            <div class="container body-content">
-                @RenderBody()
+            @RenderBody()
         </div>
-    </div>
 
         <div class="footer">
-            <img src="~/Content/Images/map-png.png"/>
         </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
