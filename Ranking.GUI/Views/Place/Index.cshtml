@@ -18,11 +18,12 @@
             {
                 var itemClass = j++ == 0 ? "active" : "";
                 <div class="item @itemClass">
-                    <img src="@item.Picture" />
-                    <div class="carousel-caption">
-                        <span class="hotelName">@item.Name</span>
-                        <p>@item.City</p>
-                    </div>
+                        <img src="~/@item.Picture" />
+                        <div class="carousel-caption">
+                            <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })" >
+                            <span class="hotelName">@item.Name</span></a>
+                            <p>@item.City</p>
+                        </div>
                 </div>
             }
         }
@@ -43,7 +44,7 @@
     {
         <div id="midHotel">
             <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
-                <img src="@item.Picture" />
+                <img src="~/@item.Picture" />
                 <p>
                     <span class="hotelName">@item.Name</span><br />
                     @item.Description

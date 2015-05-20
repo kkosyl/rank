@@ -62,8 +62,6 @@ html, body {
 
 .content {
     width: 100%;
-    min-height: 500px;
-    height: auto;
 }
 
 .wrap {
@@ -76,12 +74,13 @@ html, body {
 
 .header {
     background: #424242;
-    padding: 39px 18px;
+    padding: 10px 30px;
     height: 150px;
 }
 
 .logo {
     float: left;
+    height: 100px;
 }
 
 
@@ -174,6 +173,7 @@ html, body {
                 font-size: 15px;
                 line-height: 2;
                 font-family: Roboto-MediumItalic;
+                text-decoration-color: #000;
             }
 
                 #city li a:hover {
@@ -195,7 +195,6 @@ html, body {
         width: 100% !important;
         padding-left: 5%;
         padding-right: 10%;
-
         float: none !important;
     }
 }
@@ -207,6 +206,7 @@ html, body {
     float: right;
     margin-left: 2%;
     margin-right: 10%;
+    padding-bottom: 50px;
 }
 
     .mid #midHotel {
@@ -219,6 +219,8 @@ html, body {
         .mid #midHotel p {
             color: black;
             display: inline-block;
+            margin-left: 50px;
+
         }
 
         .mid #midHotel img {
