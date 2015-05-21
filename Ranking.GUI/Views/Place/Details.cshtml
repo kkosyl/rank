@@ -17,11 +17,35 @@
 <br />
 @Model.Description
 <br />
-@foreach (var item in Model.Picture)
-{
-    <img src="~/@item" style="height:auto; width:auto; max-height:600px; max-width:600px" />
-    <br />
-}
+<div id="carousel-generic" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.Picture.Count(); i++)
+        {
+            <li data-target="#carousel-generic" data-slide-to="@i" class="@(i == 0 ? "active" : string.Empty)"></li>
+        }
+    </ol>
+    <div class="carousel-inner">
+        @{
+            var j = 0;
+            foreach (var item in Model.Picture)
+            {
+                var itemClass = j++ == 0 ? "active" : "";
+                <div class="item @itemClass">
+                    <img src="~/@item" />
+                </div>
+            }
+        }
+    </div>
+
+    <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+
+</div>
 
 <br />
 
@@ -42,35 +66,35 @@
 
 
 
-@*<div>
-    @using (Html.BeginForm("AddOpinion", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Place.PlaceId }))
-    {
-        @Html.AntiForgeryToken()
+        @*<div>
+                @using (Html.BeginForm("AddOpinion", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Place.PlaceId }))
+                {
+                    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col-lg-3">
-                    @Html.LabelFor(m => m.Opinion.Nick)
-                    @Html.TextBoxFor(m => m.Opinion.Nick)
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-lg-3">
+                                @Html.LabelFor(m => m.Opinion.Nick)
+                                @Html.TextBoxFor(m => m.Opinion.Nick)
 
-                    <br />
+                                <br />
 
-                    @Html.LabelFor(m => m.Opinion.Email)
-                    @Html.TextBoxFor(m => m.Opinion.Email)
+                                @Html.LabelFor(m => m.Opinion.Email)
+                                @Html.TextBoxFor(m => m.Opinion.Email)
 
-                    <br />
+                                <br />
 
-                    @Html.LabelFor(m => m.Opinion.Content)
-                    @Html.TextAreaFor(m => m.Opinion.Content)
-                    <br />
+                                @Html.LabelFor(m => m.Opinion.Content)
+                                @Html.TextAreaFor(m => m.Opinion.Content)
+                                <br />
 
-                    <br />
-                </div>
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-</div>*@
+                                <br />
+                            </div>
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>*@

@@ -18,12 +18,14 @@
             {
                 var itemClass = j++ == 0 ? "active" : "";
                 <div class="item @itemClass">
+                    <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
                         <img src="~/@item.Picture" />
                         <div class="carousel-caption">
-                            <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })" >
-                            <span class="hotelName">@item.Name</span></a><br />
+                            <span class="hotelName">@item.Name</span>
+                            <br />
                             <p>@item.City</p>
                         </div>
+                    </a>
                 </div>
             }
         }
@@ -39,35 +41,35 @@
 </div>
 
 <div class="midContent">
-<div class="mid">
-    @foreach (var item in @Model)
-    {
-        <div id="midHotel">
-            <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
-                <img src="~/@item.Picture" />
-                <p>
-                    <span class="hotelName">@item.Name</span><br />
-                    @item.Description
-                </p>
-            </a>
-        </div>
-    }
-</div>
+    <div class="mid">
+        @foreach (var item in @Model)
+        {
+            <div id="midHotel">
+                <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
+                    <img src="~/@item.Picture" />
+                    <p>
+                        <span class="hotelName">@item.Name</span><br />
+                        @item.Description
+                    </p>
+                </a>
+            </div>
+        }
+    </div>
 
 
 
 
-<div id="city">
+    <div id="city">
 
-    <h3>Polska:</h3>
-    <li><a href="#">&rsaquo;&nbsp;Kraków</a></li><br />
-    <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li><br />
-    <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li><br />
+        <h3>Polska:</h3>
+        <li><a href="#">&rsaquo;&nbsp;Kraków</a></li><br />
+        <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li><br />
+        <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li><br />
 
-    <h3>Świat:</h3>
-    <li><a href="#">&rsaquo;&nbsp;Egipt</a></li><br />
-    <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li><br />
-    <li><a href="#">&rsaquo;&nbsp;Włochy</a></li><br />
+        <h3>Świat:</h3>
+        <li><a href="#">&rsaquo;&nbsp;Egipt</a></li><br />
+        <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li><br />
+        <li><a href="#">&rsaquo;&nbsp;Włochy</a></li><br />
 
-</div>
+    </div>
 </div>
