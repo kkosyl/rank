@@ -24,6 +24,10 @@
 }
 
 <br />
+
+@{Html.RenderAction("AddOpinion", "Place", new { id = Model.PlaceId });}
+
+<br />
 @if (Model.Opinions != null)
 {
     foreach (var item in Model.Opinions)
@@ -35,6 +39,8 @@
         @item.Value.Content
     }
 }
+
+
 
 @*<div>
     @using (Html.BeginForm("AddOpinion", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Place.PlaceId }))

@@ -1,0 +1,32 @@
+﻿@model Ranking.GUI.ViewModels.AddOpinionViewModel
+@using (Html.BeginForm("AddOpinion", "Place", new { id = Model.PlaceId}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-lg-3">
+                @Html.LabelFor(m => m.Nick)
+                @Html.TextBoxFor(m => m.Nick)
+
+                <br />
+
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+
+                <br />
+
+                @Html.LabelFor(m => m.Content)
+                @Html.TextAreaFor(m => m.Content)
+                <br />
+                @Html.LabelFor(m => m.Grade)
+                @Html.TextBoxFor(m => m.Grade)
+                <br />
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

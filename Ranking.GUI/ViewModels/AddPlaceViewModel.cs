@@ -29,7 +29,6 @@ namespace Ranking.GUI.ViewModels
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
-        [Required]
         [Display(Name = "Zdjęcie")]
         public IEnumerable<HttpPostedFileBase> Picture { get; set; }
     }

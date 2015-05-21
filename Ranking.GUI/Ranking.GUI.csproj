@@ -122,6 +122,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Place\AddPlace.cshtml" />
     <Content Include="Views\Place\Details.cshtml" />
+    <Content Include="Views\Place\AddOpinion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
