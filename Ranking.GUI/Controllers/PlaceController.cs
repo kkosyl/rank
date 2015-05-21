@@ -69,8 +69,40 @@ namespace Ranking.GUI.Controllers
             return View(model);
         }
 
-        public ActionResult AddOpinion(AddOpinionViewModel model)
+        [HttpGet]
+        public ActionResult AddOpinion(int id)
         {
+            AddOpinionViewModel model = new AddOpinionViewModel();
+            model.PlaceId = id;
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddOpinion(AddOpinionViewModel model, int id)
+        {
+            model.PlaceId = id;
+            if (ModelState.IsValid)
+            {
+                if (!_userRepository.GetAll().Any(u => u.Nick == model.Nick && u.Email == model.Email))
+                {
+                    _userRepository.Add(new User 
+                    {
+                        Email = model.Email,
+                        Nick = model.Nick,
+                    });
+                    _userRepository.Commit();
+                }
+                int uid = _userRepository.GetAll().FirstOrDefault(u => u.Nick == model.Nick).UserID;
+                _opinionRepository.Add(new Opinion
+                {
+                    AddDate = DateTime.Now,
+                    Content = model.Content,
+                    Grade = model.Grade,
+                    PlaceId = id,
+                    UserID = uid
+                });
+                _opinionRepository.Commit();
+            }
             return RedirectToAction("Index");
         }
 
@@ -100,14 +132,22 @@ namespace Ranking.GUI.Controllers
 
                         int placeId = _placeRepository.GetAll().First(h => h.Name == model.Name).PlaceId;
 
-                        foreach (var item in model.Picture)
+                        if (model.Picture.ElementAt(0) != null)
                         {
-                            string fileName = Guid.NewGuid().ToString();
-                            string filePath = fileName + Path.GetExtension(item.FileName);
-                            string path = Path.Combine(Server.MapPath(@"~/Content/Photos/"), filePath);
-                            item.SaveAs(path);
+                            foreach (var item in model.Picture)
+                            {
+                                string fileName = Guid.NewGuid().ToString();
+                                string filePath = fileName + Path.GetExtension(item.FileName);
+                                string path = Path.Combine(Server.MapPath(@"~/Content/Photos/"), filePath);
+                                item.SaveAs(path);
 
-                            _pictureRepository.Add(new Picture { Source = "Content/Photos/" + filePath, PlaceId = placeId });
+                                _pictureRepository.Add(new Picture { Source = "Content/Photos/" + filePath, PlaceId = placeId });
+                                _pictureRepository.Commit();
+                            }
+                        }
+                        else
+                        {
+                            _pictureRepository.Add(new Picture { Source = "Content/Images/default-image.png", PlaceId = placeId });
                             _pictureRepository.Commit();
                         }
                         return RedirectToAction("Index");
