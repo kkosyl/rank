@@ -21,7 +21,7 @@
                         <img src="~/@item.Picture" />
                         <div class="carousel-caption">
                             <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })" >
-                            <span class="hotelName">@item.Name</span></a>
+                            <span class="hotelName">@item.Name</span></a><br />
                             <p>@item.City</p>
                         </div>
                 </div>
@@ -38,7 +38,7 @@
 
 </div>
 
-
+<div class="midContent">
 <div class="mid">
     @foreach (var item in @Model)
     {
@@ -69,4 +69,5 @@
     <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li><br />
     <li><a href="#">&rsaquo;&nbsp;Włochy</a></li><br />
 
+</div>
 </div>

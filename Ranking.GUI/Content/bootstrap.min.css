@@ -3666,7 +3666,6 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     position: relative;
     z-index: 1000;
     min-height: 50px;
-    margin-bottom: 20px;
     border: 1px solid transparent;
 }
 
@@ -4020,7 +4019,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .navbar-default {
-    background-color: #118085;
+    background-color: #0477CA;
 }
 
     .navbar-default .navbar-brand {
@@ -4037,9 +4036,9 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     }
 
     .navbar-default .navbar-nav > li > a {
-        color:#61D3D8;
-        border-right: 1px solid #0BA2A2;
-	    border-left: 1px solid #065158;
+        color:#fff;
+        border-right: 1px solid #0e5da1;
+	    border-left: 1px solid #0e5da1;
         min-width: 150px;
         text-align: center;
         font-family: Roboto-MediumItalic;
@@ -4048,7 +4047,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 
         .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
             color: white;
-            background: #16A2A2  url('Images/pointer1.png') no-repeat 54px 0;
+            background: rgba(14, 93, 161, 0.73)  url('Images/pointer1.png') no-repeat 54px 0;
             background-position-x: center;
         }
 
@@ -5756,7 +5755,7 @@ button.close {
     }
 
     .carousel-indicators {
-        bottom: 20px;
+        bottom: -20px;
     }
 }
 

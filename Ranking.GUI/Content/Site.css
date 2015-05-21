@@ -56,24 +56,27 @@ hr {
 
 html, body {
     font-family: "Arial" serif;
-    background: #5F6D6B !important;
+    background-image: url(../Content/Images/sea_img.png);
+    background-position-x: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
     margin: 2% 10% 2% 10%;
 }
 
 .content {
     width: 100%;
+    background: #fff;
 }
 
 .wrap {
     width: auto;
     margin: 0 auto;
-    background: #fff;
     box-shadow: 0px 0px 10px;
 }
 
 
 .header {
-    background: #424242;
     padding: 10px 30px;
     height: 150px;
 }
@@ -81,6 +84,7 @@ html, body {
 .logo {
     float: left;
     height: 100px;
+    background: none;
 }
 
 
@@ -108,8 +112,8 @@ html, body {
 #carousel-generic {
     width: auto;
     height: 400px;
+    padding-top: 30px;
     margin-bottom: 50px;
-    margin-top: 30px;
     left: 1%;
     right: 1%;
 }
@@ -147,7 +151,7 @@ html, body {
 /*-----Left-----*/
 @media (min-width: 960px) {
     #city {
-        width: 25%;
+        width: 20%;
         max-width: 400px;
         background-color: #424242;
         min-height: 550px;
@@ -159,7 +163,7 @@ html, body {
 
         #city h3 {
             font-family: Roboto-Bold;
-            font-size: 20px;
+            font-size: 22px;
             color: #fff;
         }
 
@@ -170,14 +174,14 @@ html, body {
 
             #city li a {
                 color: #fff;
-                font-size: 15px;
+                font-size: 17px;
                 line-height: 2;
                 font-family: Roboto-MediumItalic;
                 text-decoration-color: #000;
             }
 
                 #city li a:hover {
-                    color: #0B6F74;
+                    color: #0477CA;
                     text-decoration: none;
                 }
 }
@@ -190,6 +194,10 @@ html, body {
 
 /*-----Center-----*/
 
+.midContent {
+    background-color: #fff;
+}
+
 @media (max-width: 960px) {
     .mid {
         width: 100% !important;
@@ -200,12 +208,12 @@ html, body {
 }
 
 .mid {
-    width: 63%;
+    width: 75%;
     min-height: 500px;
     display: inline-block;
     float: right;
     margin-left: 2%;
-    margin-right: 10%;
+    margin-right: 2%;
     padding-bottom: 50px;
 }
 
