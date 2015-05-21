@@ -3,98 +3,76 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Scripts/GalleryJssor.js"></script>
+<div class="midContent">
 
-<h2>@Model.Name</h2>
-<div>
-    @Html.ActionLink("Usuń", "Delete", new { id = Model.PlaceId })
-</div>
-<div>
-    @Html.ActionLink("Wróć", "Index")
-</div>
+    <span class="detailsName">@Model.Name</span>
 
 
-@Model.Country
-<br />
-@Model.Description
-<br />
-<div id="carousel-generic" class="carousel slide" data-ride="carousel">
 
-    <ol class="carousel-indicators">
-        @for (int i = 0; i < Model.Picture.Count(); i++)
-        {
-            <li data-target="#carousel-generic" data-slide-to="@i" class="@(i == 0 ? "active" : string.Empty)"></li>
-        }
-    </ol>
-    <div class="carousel-inner">
-        @{
-            var j = 0;
-            foreach (var item in Model.Picture)
+    <div class="details">
+        <div class="contact">
+            <span class="capital">Kontakt</span><br />
+            &rsaquo;&nbsp;@Model.City<br />
+            &rsaquo;&nbsp;@Model.Country<br />
+
+
+        </div>
+
+
+        <div class="gallery">
+            @foreach (var item in Model.Picture)
             {
-                var itemClass = j++ == 0 ? "active" : "";
-                <div class="item @itemClass">
-                    <img src="~/@item" />
-                </div>
+                <a tabindex="1"><img src="~/@item" /></a>
             }
-        }
+            <span class="close"></span>
+        </div>
     </div>
 
-    <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-generic" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
+    <div class="description">
+        @Model.Description
+    </div>
 
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>@Model.Name</h2>
+    <div>
+        @Html.ActionLink("Usuń", "Delete", new { id = Model.PlaceId })
+    </div>
+    <div>
+        @Html.ActionLink("Wróć", "Index")
+    </div>
+
+
+    @Model.Country
+    <br />
+    @Model.Description
+    <br />
+
+    @{Html.RenderAction("AddOpinion", "Place", new { id = Model.PlaceId });}
+
+    <br />
+    @if (Model.Opinions != null)
+    {
+        foreach (var item in Model.Opinions)
+        {
+            @item.Key
+            <br />
+            @item.Value.Grade
+            <br />
+            @item.Value.Content
+        }
+    }*@
 </div>
 
-<br />
-
-@{Html.RenderAction("AddOpinion", "Place", new { id = Model.PlaceId });}
-
-<br />
-@if (Model.Opinions != null)
-{
-    foreach (var item in Model.Opinions)
-    {
-        @item.Key
-        <br />
-        @item.Value.Grade
-        <br />
-        @item.Value.Content
-    }
-}
 
 
-
-        @*<div>
-                @using (Html.BeginForm("AddOpinion", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data", id = Model.Place.PlaceId }))
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="form-horizontal">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            <div class="col-lg-3">
-                                @Html.LabelFor(m => m.Opinion.Nick)
-                                @Html.TextBoxFor(m => m.Opinion.Nick)
-
-                                <br />
-
-                                @Html.LabelFor(m => m.Opinion.Email)
-                                @Html.TextBoxFor(m => m.Opinion.Email)
-
-                                <br />
-
-                                @Html.LabelFor(m => m.Opinion.Content)
-                                @Html.TextAreaFor(m => m.Opinion.Content)
-                                <br />
-
-                                <br />
-                            </div>
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>*@

@@ -54,6 +54,18 @@ hr {
     border-color: #16A2A2 !important;
 }
 
+.capital {
+    font-family: 'Roboto Slab';
+    font-size: 130%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 470px) {
+    html, body {
+        background: none !important;
+    }
+}
+
 html, body {
     font-family: "Arial" serif;
     background-image: url(../Content/Images/sea_img.png);
@@ -64,9 +76,11 @@ html, body {
     margin: 2% 10% 2% 10%;
 }
 
+
 .content {
-    width: 100%;
+    min-height: 550px;
     background: #fff;
+    overflow: auto;
 }
 
 .wrap {
@@ -96,6 +110,7 @@ html, body {
     width: 350px;
     height: 40px;
 }
+
 @media(max-width:1350px) {
     #navbar #inputSearch {
         margin-top: 1% !important;
@@ -110,12 +125,11 @@ html, body {
 
 /*-----Carousel-----*/
 #carousel-generic {
-    width: auto;
+    width: 95%;
     height: 400px;
     padding-top: 30px;
     margin-bottom: 50px;
-    left: 1%;
-    right: 1%;
+    left: 3%;
 }
 
     #carousel-generic .item img {
@@ -156,7 +170,7 @@ html, body {
         background-color: #424242;
         min-height: 550px;
         padding-top: 10px;
-        padding-left: 5%;
+        padding-left: 2%;
         display: inline-block;
         margin-bottom: 30px;
     }
@@ -188,7 +202,7 @@ html, body {
 
 @media (max-width: 960px) {
     #city a, li, h3 {
-       display: none;
+        display: none;
     }
 }
 
@@ -196,13 +210,15 @@ html, body {
 
 .midContent {
     background-color: #fff;
+    width: 100%;
+    min-height: 800px;
+    overflow: auto;
 }
 
 @media (max-width: 960px) {
     .mid {
-        width: 100% !important;
+        width: 90% !important;
         padding-left: 5%;
-        padding-right: 10%;
         float: none !important;
     }
 }
@@ -221,14 +237,13 @@ html, body {
         height: 150px;
         width: 100%;
         border-bottom: 1px rgba(22, 162, 162, 0.48) solid;
-        display: block;
+        display: inline-block;
     }
 
         .mid #midHotel p {
             color: black;
             display: inline-block;
             margin-left: 50px;
-
         }
 
         .mid #midHotel img {
@@ -249,6 +264,196 @@ html, body {
             background: rgba(22, 162, 162, 0.22);
             text-decoration: none;
         }
+
+
+
+
+
+
+
+
+
+/*-----Gallery----*/
+
+@media (max-width: 801px) {
+    .gallery {
+        width: auto !important;
+    }
+
+        .gallery a {
+            display: inline-block;
+            height: 30px;
+            position: relative;
+            width: 80px;
+        }
+
+            .gallery a:focus img {
+                border: 0 !important;
+                height: 150% !important;
+                position: absolute;
+                width: 150% !important;
+            }
+
+            .gallery a:focus:nth-child(3n+1) img {
+            left: -25% !important;
+        }
+}
+
+
+.gallery {
+    width: 500px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+    .gallery a {
+        display: inline-block;
+        height: 100px;
+        position: relative;
+        width: 150px;
+    }
+
+        .gallery a img {
+            border: 5px solid #fff;
+            cursor: pointer;
+            display: block;
+            height: 100%;
+            left: 0px;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            z-index: 1;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition-property: width, height, top, bottom, left, right, z-index, border;
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-property: width, height, top, bottom, left, right, z-index, border;
+            -moz-transition-duration: 0.5s;
+            -o-transition-property: width, height, top, bottom, left, right, z-index, border;
+            -o-transition-duration: 0.5s;
+            transition-property: width, height, top, bottom, left, right, z-index, border;
+            transition-duration: 0.5s;
+        }
+
+        .gallery a:focus img {
+            border: 15px solid #fff;
+            cursor: default;
+            height: 450%;
+            position: absolute;
+            width: 450%;
+            z-index: 25;
+            box-shadow: 1px 1px 5px #888;
+            -moz-box-shadow: 1px 1px 5px #888;
+            -webkit-box-shadow: 1px 1px 5px #888;
+            -webkit-transition-property: width, height, top, bottom, left, right, z-index, border;
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-property: width, height, top, bottom, left, right, z-index, border;
+            -moz-transition-duration: 0.5s;
+            -o-transition-property: width, height, top, bottom, left, right, z-index, border;
+            -o-transition-duration: 0.5s;
+            transition-property: width, height, top, bottom, left, right, z-index, border;
+            transition-duration: 0.5s;
+        }
+
+        /* custom focus rules */
+        .gallery a:focus:nth-child(3n+1) img {
+            left: 50px;
+        }
+    /*.gallery a:focus:nth-child(3n+2) img {
+    left:-50px;
+}
+.gallery a:focus:nth-child(3n+3) img {
+    left:-250px;
+}
+.gallery a:focus:nth-child(-n+3) img {
+    top:140px;
+}
+.gallery a:focus:nth-child(n+7) img {
+    top:-150px;
+}
+.gallery a:focus:nth-child(n+10) img {
+    top:-295px;
+}*/
+
+    /* extra close layer */
+    .gallery .close {
+        background: transparent;
+        cursor: pointer;
+        display: none;
+        height: 352px;
+        left: 170px;
+        position: absolute;
+        top: 160px;
+        width: 500px;
+        z-index: 30;
+    }
+
+    .gallery a:focus ~ .close {
+        display: block;
+    }
+/*-----Gallery----*/
+
+
+
+/*-----Details----*/
+
+.detailsName {
+    font-family: Roboto-Bold;
+    text-shadow: 2px 2px 2px #888;
+    font-size: 300%;
+    color: black;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+@media (max-width: 1000px) {
+    .contact {
+    width: 100% !important;
+    min-height: 100px;
+    height: auto !important;
+    float: left !important; 
+    border-left: none !important;
+}
+}
+
+
+.contact {
+    width: 50%;
+    height: 300px;
+    display: inline-block;
+    float: right; 
+    border-left: 1px solid #0477CA;
+    padding-left: 50px;
+    font-family: Roboto-Light;
+    font-size: 180%;
+}
+
+.description {
+    padding-left: 3%;
+    padding-top: 3%;
+    font-family: Roboto-Light;
+    font-size: 200%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*-----footer-----*/

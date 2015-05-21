@@ -5609,7 +5609,7 @@ button.close {
     }
 
     .carousel-inner > .prev {
-        left: -100%;
+        /*left: -100%;*/
     }
 
         .carousel-inner > .next.left, .carousel-inner > .prev.right {
@@ -5629,7 +5629,7 @@ button.close {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 15%;
+    width: 8%;
     font-size: 20px;
     color: #fff;
     text-align: center;
@@ -5648,7 +5648,7 @@ button.close {
     }
 
     .carousel-control.right {
-        right: -80px;
+        right: 0px;
         left: auto;
         /*background-image: -webkit-gradient(linear,0 top,100% top,from(rgba(0,0,0,0.0001)),to(rgba(0,0,0,0.5)));
         background-image: -webkit-linear-gradient(left,color-stop(rgba(0,0,0,0.0001) 0),color-stop(rgba(0,0,0,0.5) 100%));
@@ -5755,7 +5755,7 @@ button.close {
     }
 
     .carousel-indicators {
-        bottom: -20px;
+        bottom: -40px;
     }
 }
 
