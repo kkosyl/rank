@@ -15,11 +15,6 @@
 }
 
 
-
-
-
-
-
 /* Set padding to keep content from hitting the edges */
 /*.body-content {
         display: inline-block;
@@ -56,7 +51,7 @@ hr {
 
 .capital {
     font-family: 'Roboto Slab';
-    font-size: 130%;
+    font-size: 25px;
     margin-bottom: 20px;
 }
 
@@ -68,7 +63,7 @@ hr {
 
 html, body {
     font-family: "Arial" serif;
-    background-image: url(../Content/Images/sea_img.png);
+    background-image: url('Images/sea_img.png');
     background-position-x: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -109,6 +104,11 @@ html, body {
     display: inline-block;
     width: 350px;
     height: 40px;
+}
+
+#navbar ul.navbar-nav li.highlight a {
+    background: #fff;
+    color: #000;
 }
 
 @media(max-width:1350px) {
@@ -167,9 +167,10 @@ html, body {
     #city {
         width: 20%;
         max-width: 400px;
-        background-color: #424242;
-        min-height: 550px;
-        padding-top: 10px;
+        background-color: #fff;
+        border-right: #0477CA solid 1px;
+        min-height: 450px;
+        padding-top: 40px;
         padding-left: 2%;
         display: inline-block;
         margin-bottom: 30px;
@@ -178,7 +179,7 @@ html, body {
         #city h3 {
             font-family: Roboto-Bold;
             font-size: 22px;
-            color: #fff;
+            color: #000;
         }
 
         #city li {
@@ -187,7 +188,7 @@ html, body {
         }
 
             #city li a {
-                color: #fff;
+                color: #000;
                 font-size: 17px;
                 line-height: 2;
                 font-family: Roboto-MediumItalic;
@@ -230,43 +231,52 @@ html, body {
     float: right;
     margin-left: 2%;
     margin-right: 2%;
-    padding-bottom: 50px;
 }
 
     .mid #midHotel {
         height: 150px;
         width: 100%;
-        border-bottom: 1px rgba(22, 162, 162, 0.48) solid;
+        border-bottom: 1px #0477CA solid;
         display: inline-block;
     }
-
-        .mid #midHotel p {
-            color: black;
-            display: inline-block;
-            margin-left: 50px;
-        }
-
-        .mid #midHotel img {
-            height: 99px;
-            display: inline-block;
-            margin-top: 40px;
-        }
-
-        .mid #midHotel .hotelName {
-            font-size: 20px;
-            display: inline-block;
-        }
 
         .mid #midHotel a:hover {
             display: block;
             width: 100%;
             height: 100%;
-            background: rgba(22, 162, 162, 0.22);
+            background: rgba(4, 119, 202, 0.36);
             text-decoration: none;
         }
 
+    .mid #midImg {
+        display: inline-block;
+        width: 150px;
+        margin-top: 25px;
+    }
 
+    .mid #midHotel img {
+        height: 100px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .mid #midDescription {
+        display: block;
+        margin-left: 180px;
+        margin-top: -100px;
+    }
+
+        .mid #midDescription .hotelName {
+            font-family: Roboto-Bold;
+            font-size: 200%;
+        }
+
+        .mid #midDescription p {
+            font-family: Roboto-Light;
+            font-size: 140%;
+            color: #000;
+        }
 
 
 
@@ -295,15 +305,17 @@ html, body {
             }
 
             .gallery a:focus:nth-child(3n+1) img {
-            left: -25% !important;
-        }
+                left: -25% !important;
+            }
 }
 
 
 .gallery {
     width: 500px;
+    min-height: 300px;
     margin-left: 20px;
     margin-top: 30px;
+    background: #fff;
 }
 
     .gallery a {
@@ -323,6 +335,7 @@ html, body {
             top: 0px;
             width: 100%;
             z-index: 1;
+            background: #fff;
             -moz-user-select: none;
             -khtml-user-select: none;
             user-select: none;
@@ -342,9 +355,9 @@ html, body {
         .gallery a:focus img {
             border: 15px solid #fff;
             cursor: default;
-            height: 450%;
+            height: 400%;
             position: absolute;
-            width: 450%;
+            width: 400%;
             z-index: 25;
             box-shadow: 1px 1px 5px #888;
             -moz-box-shadow: 1px 1px 5px #888;
@@ -412,12 +425,12 @@ html, body {
 
 @media (max-width: 1000px) {
     .contact {
-    width: 100% !important;
-    min-height: 100px;
-    height: auto !important;
-    float: left !important; 
-    border-left: none !important;
-}
+        width: 100% !important;
+        min-height: 100px;
+        height: auto !important;
+        float: left !important;
+        border-left: none !important;
+    }
 }
 
 
@@ -425,40 +438,108 @@ html, body {
     width: 50%;
     height: 300px;
     display: inline-block;
-    float: right; 
+    float: right;
     border-left: 1px solid #0477CA;
-    padding-left: 50px;
+    padding-left: 20px;
     font-family: Roboto-Light;
-    font-size: 180%;
+    font-size: 20px;
 }
+
+    .contact ul li {
+        list-style-type: none;
+    }
 
 .description {
-    padding-left: 3%;
+    border-top: #0477CA 1px solid;
     padding-top: 3%;
+    min-height: 300px;
     font-family: Roboto-Light;
-    font-size: 200%;
+    font-size: 150%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 
 
 
 
+/*-----opinion----*/
+.opinion {
+    margin-left: 3%;
+    margin-right: 3%;
+    border-top: #0477CA 1px solid;
+}
 
+    .opinion label {
+        text-align: right;
+        margin-left: 10px;
+        width: auto;
+    }
 
+    .opinion input {
+        margin-left: 10px;
+    }
 
+@media (max-width: 800px) {
+    #nickLabel label, #emailLabel label, #opinionLabel label, #gradeLabel label {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
 
+    #nickLabel, #emailLabel, #opinionLabel, #gradeLabel {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+    }
 
+        #nickLabel input, #emailLabel input, #opinionLabel textarea, #gradeLabel input {
+            height: 30px;
+            width: 90% !important;
+            clear: both;
+            resize: none;
+            display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        }
 
+    .opinion .btn-default {
+        margin-top: 20px !important;
+    }
+}
 
+#opinionLabel {
+    margin-bottom: 20px;
+}
 
+#nickLabel, #emailLabel {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: 8px;
+    width: 40%;
+}
 
+#opinionLabel textarea {
+    min-width: 90%;
+    height: 90px;
+    resize: none;
+}
 
+#nickLabel input, #emailLabel input {
+    height: 30px;
+    width: 70%;
+}
 
-
-
+#gradeLabel {
+    display: inline-block;
+    margin-left: 32%;
+    margin-bottom: 20px;
+}
 /*-----footer-----*/
 .footer {
-    background-color: #424242;
+    background-color: #0477CA;
     height: 150px;
     width: auto;
     color: white;

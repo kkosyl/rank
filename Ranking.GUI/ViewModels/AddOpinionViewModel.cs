@@ -12,13 +12,13 @@ namespace Ranking.GUI.ViewModels
 
         [Required]
         [StringLength(10)]
-        [Display(Name="Alias")]
+        [Display(Name="Nick")]
         public string Nick { get; set; }
 
         [Required]
         [StringLength(20)]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [Required]

@@ -1,32 +1,32 @@
 ﻿@model Ranking.GUI.ViewModels.AddOpinionViewModel
-@using (Html.BeginForm("AddOpinion", "Place", new { id = Model.PlaceId}))
+@using (Html.BeginForm("AddOpinion", "Place", new { id = Model.PlaceId }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="opinion">
+        <span class="capital">Oceń to miejsce:</span><br />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="col-lg-3">
-                @Html.LabelFor(m => m.Nick)
-                @Html.TextBoxFor(m => m.Nick)
+        <div id="nickLabel">
+            @Html.LabelFor(m => m.Nick)
+            @Html.TextBoxFor(m => m.Nick)
+        </div>
 
-                <br />
+        <div id="emailLabel">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+        </div>
 
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
+        <div id="opinionLabel">
+            @Html.LabelFor(m => m.Content)
+            @Html.TextAreaFor(m => m.Content)
+        </div>
 
-                <br />
+        <div id="gradeLabel">
+            @Html.LabelFor(m => m.Grade)
+            @Html.TextBoxFor(m => m.Grade)
 
-                @Html.LabelFor(m => m.Content)
-                @Html.TextAreaFor(m => m.Content)
-                <br />
-                @Html.LabelFor(m => m.Grade)
-                @Html.TextBoxFor(m => m.Grade)
-                <br />
-            </div>
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
-            </div>
+            <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
         </div>
     </div>
 }

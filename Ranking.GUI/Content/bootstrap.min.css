@@ -4047,7 +4047,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 
         .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
             color: white;
-            background: rgba(14, 93, 161, 0.73)  url('Images/pointer1.png') no-repeat 54px 0;
+            background: rgba(14, 93, 161, 0.73);
             background-position-x: center;
         }
 
@@ -4067,7 +4067,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     }
 
         .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-            background-color: #16A2A2;
+            background-color: #428bca;
         }
 
         .navbar-default .navbar-toggle .icon-bar {
@@ -5629,7 +5629,7 @@ button.close {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 8%;
+    width: 2%;
     font-size: 20px;
     color: #fff;
     text-align: center;
@@ -5677,7 +5677,7 @@ button.close {
         width: 20px;
         height: 20px;
         margin-top: -10px;
-        margin-left: -10px;
+        margin-left: -15px;
         font-family: serif;
     }
 
@@ -5710,7 +5710,7 @@ button.close {
         margin: 1px;
         text-indent: -999px;
         cursor: pointer;
-        border: 1px solid #118085;
+        border: 1px solid #0477ca;
         border-radius: 10px;
     }
 
@@ -5718,7 +5718,7 @@ button.close {
         width: 12px;
         height: 12px;
         margin: 0;
-        background-color: #118085;
+        background-color: #0477ca;
     }
 
 .carousel-caption {
@@ -5745,7 +5745,7 @@ button.close {
         margin-top: -15px;
         margin-left: -15px;
         font-size: 30px;
-        color: #118085;
+        color: #0477ca;
     }
 
     .carousel-caption {
