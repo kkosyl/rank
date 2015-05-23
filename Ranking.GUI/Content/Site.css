@@ -45,9 +45,6 @@ a {
     text-decoration: none;
 }
 
-hr {
-    border-color: #16A2A2 !important;
-}
 
 .capital {
     font-family: 'Roboto Slab';
@@ -464,19 +461,21 @@ html, body {
 
 
 /*-----opinion----*/
-.opinion {
+.addOpinion {
     margin-left: 3%;
     margin-right: 3%;
     border-top: #0477CA 1px solid;
 }
 
-    .opinion label {
+    .addOpinion label {
         text-align: right;
         margin-left: 10px;
         width: auto;
+        font-family: Roboto-Light;
+        font-weight: bold;
     }
 
-    .opinion input {
+    .addOpinion input {
         margin-left: 10px;
     }
 
@@ -501,11 +500,11 @@ html, body {
             clear: both;
             resize: none;
             display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
-    .opinion .btn-default {
+    .addOpinion .btn-default {
         margin-top: 20px !important;
     }
 }
@@ -537,10 +536,27 @@ html, body {
     margin-left: 32%;
     margin-bottom: 20px;
 }
+
+/*----opinions----*/
+
+.showOpinions {
+    border-top: #0477CA 1px solid;
+    margin-right: 3%;
+    margin-left: 3%;
+    padding-top: 10px;
+}
+
+    .showOpinions hr {
+        border-color: #0477CA !important;
+        width: 80%;
+    }
+
+
+
 /*-----footer-----*/
 .footer {
     background-color: #0477CA;
-    height: 150px;
+    height: 100px;
     width: auto;
     color: white;
 }

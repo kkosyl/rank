@@ -81,7 +81,7 @@ namespace Ranking.GUI.Controllers
         public ActionResult AddOpinion(AddOpinionViewModel model, int id)
         {
             model.PlaceId = id;
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 if (!_userRepository.GetAll().Any(u => u.Nick == model.Nick && u.Email == model.Email))
                 {

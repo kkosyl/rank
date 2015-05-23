@@ -1,21 +1,22 @@
 ﻿@model Ranking.GUI.ViewModels.AddOpinionViewModel
+<script src="~/Scripts/jRate.js"></script>
 @using (Html.BeginForm("AddOpinion", "Place", new { id = Model.PlaceId }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="opinion">
+    <div class="addOpinion">
         <span class="capital">Oceń to miejsce:</span><br />
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div id="nickLabel">
-            @Html.LabelFor(m => m.Nick)
-            @Html.TextBoxFor(m => m.Nick)
-        </div>
+            <div id="nickLabel">
+                @Html.LabelFor(m => m.Nick)
+                @Html.TextBoxFor(m => m.Nick)
+            </div>
 
-        <div id="emailLabel">
-            @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)
-        </div>
+            <div id="emailLabel">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </div>
 
         <div id="opinionLabel">
             @Html.LabelFor(m => m.Content)
@@ -23,9 +24,9 @@
         </div>
 
         <div id="gradeLabel">
+            <input id="rating-system" type="number" class="rating" min="0" max="5" step="1">
             @Html.LabelFor(m => m.Grade)
             @Html.TextBoxFor(m => m.Grade)
-
             <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
         </div>
     </div>
