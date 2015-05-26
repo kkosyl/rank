@@ -37,25 +37,7 @@
     </div>
 
     @{Html.RenderAction("AddOpinion", "Place", new { id = Model.PlaceId });}
-
-    <div class="showOpinions">
-        @foreach (var item in Model.Opinions)
-        {
-            <div class="opinion">
-                <table>
-                    <tr>
-                        <td>
-                            <b>@item.Value.User.Nick</b><br />
-                            @item.Value.AddDate.ToString("d") <br />
-                            <span id="grade">@item.Value.Grade</span><br />
-                            <td>@item.Value.Content</td>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <hr />
-        }
-    </div>
+    @{Html.RenderAction("Opinions", "Place", new { id = Model.PlaceId });}
 
 </div>
 

@@ -56,7 +56,7 @@ namespace Ranking.GUI.Controllers
             model.Picture = new List<string>();
 
             var picturesPath = _pictureRepository.GetAll().Where(p => p.PlaceId == id).Select(p => p.Source);
-            
+
             foreach (var item in picturesPath)
                 model.Picture.Add(item);
 
@@ -69,6 +69,25 @@ namespace Ranking.GUI.Controllers
             return View(model);
         }
 
+        public ActionResult Opinions(int id)
+        {
+            IList<OpinionsViewModel> model = new List<OpinionsViewModel>();
+            var opinions = _opinionRepository.GetAll().Where(o => o.PlaceId == id).ToList();
+            foreach (var item in opinions)
+            {
+                model.Add(new OpinionsViewModel
+                {
+                    Content = item.Content,
+                    AddDate = item.AddDate,
+                    Rate = item.Grade,
+                    UserId = item.UserID,
+                    UserNickname = _userRepository.Get(item.UserID).Nick
+                });
+            }
+
+            return PartialView(model);
+        }
+
         [HttpGet]
         public ActionResult AddOpinion(int id)
         {
@@ -78,14 +97,19 @@ namespace Ranking.GUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOpinion(AddOpinionViewModel model, int id)
+        public ActionResult AddOpinion(FormCollection form, int id)
         {
+            AddOpinionViewModel model = new AddOpinionViewModel();
+            model.Content = form["Content"];
+            model.Email = form["Email"];
+            model.Nick = form["Nick"];
+            model.Grade = int.Parse(form["Rating"]);
             model.PlaceId = id;
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if (!_userRepository.GetAll().Any(u => u.Nick == model.Nick && u.Email == model.Email))
                 {
-                    _userRepository.Add(new User 
+                    _userRepository.Add(new User
                     {
                         Email = model.Email,
                         Nick = model.Nick,
@@ -103,7 +127,7 @@ namespace Ranking.GUI.Controllers
                 });
                 _opinionRepository.Commit();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { id = model.PlaceId });
         }
 
         [HttpGet]

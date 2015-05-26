@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ranking.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Ranking.GUI.ViewModels
 
         [Required]
         [Display(Name = "Ocena")]
-        //[RegularExpression("[1-5]")]
+        [RegularExpression("[1-5]")]
         public int Grade { get; set; }
     }
 }
