@@ -97,13 +97,8 @@ namespace Ranking.GUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOpinion(FormCollection form, int id)
+        public ActionResult AddOpinion(AddOpinionViewModel model, int id)
         {
-            AddOpinionViewModel model = new AddOpinionViewModel();
-            model.Content = form["Content"];
-            model.Email = form["Email"];
-            model.Nick = form["Nick"];
-            model.Grade = int.Parse(form["Rating"]);
             model.PlaceId = id;
             if (ModelState.IsValid)
             {
