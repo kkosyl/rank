@@ -884,6 +884,7 @@
     <Content Include="Scripts\NgModule\main.js" />
     <Content Include="Scripts\star-rating.js" />
     <Content Include="Scripts\star-rating.min.js" />
+    <Content Include="Views\Place\Search.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -915,7 +916,6 @@
     <Content Include="Views\Place\Details.cshtml" />
     <Content Include="Views\Place\AddOpinion.cshtml" />
     <Content Include="Views\Place\Opinions.cshtml" />
-    <Content Include="Views\Place\Search.cshtml" />
     <Content Include="Views\Place\TopTen.cshtml" />
     <Content Include="Scripts\version.json" />
     <None Include="Web.Debug.config">
