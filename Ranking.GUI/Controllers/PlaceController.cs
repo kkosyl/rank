@@ -201,5 +201,20 @@ namespace Ranking.GUI.Controllers
             _pictureRepository.Commit();
             return RedirectToAction("Index");
         }
+
+        public ActionResult TopTen()
+        {
+            return View();
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        public JsonResult GetPlaces()
+        {
+            return Json(_placeRepository.GetAll().ToList(), JsonRequestBehavior.AllowGet);
+        }
     }
 }
