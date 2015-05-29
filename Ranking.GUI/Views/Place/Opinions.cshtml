@@ -1,28 +1,23 @@
 ﻿@using Ranking.GUI.ViewModels
 @model IList<OpinionsViewModel>
-<div class="showOpinions" ng-app="myModule">
-    <div ng-controller="collapseCtrl">
-        <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Pokaż opinie</button>
-        <div collapse="isCollapsed">
-            @foreach (var item in Model)
-            {
-                <div class="opinion">
-                    <table>
-                        <tr>
-                            <td>
-                                <b>@item.UserNickname</b><br />
-                                @item.AddDate.ToString("d") <br />
-                                <span id="grade">
-                                    <input class="rating" value="@item.Rate" data-disabled="true">
-                                </span><br />
-                            <td>@item.Content</td>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <hr />
-            }
+<div class="showOpinions">
+    @foreach (var item in Model)
+    {
+        <div class="opinion">
+            <table>
+                <tr>
+                    <td>
+                        <b>@item.UserNickname</b><br />
+                        @item.AddDate.ToString("d") <br />
+                        <span id="grade">
+                            <input class="rating" value="@item.Rate" data-disabled="true">
+                        </span><br />
+                    <td>@item.Content</td>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
+        <hr />
+    }
 </div>
 

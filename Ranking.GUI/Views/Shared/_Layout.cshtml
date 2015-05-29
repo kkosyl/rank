@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="myModule">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,12 @@
     <script src="~/Scripts/highlightNavbar.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/star-rating.js"></script>
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <script src="~/Scripts/NgModule/main.js"></script>
+
 
 </head>
 
 <body>
+
     <div class="wrap">
         <div class="header">
             <div class="logo"><a href="~/Place/Index"><img src="~/Content/Images/Logo.png" /></a></div>
@@ -40,13 +39,7 @@
                         <li><a href="~/Place/AddPlace">Dodaj miejsce</a></li>
                         <li><a href="~/Place/Top10">Top 10</a></li>
                         <li><a href="~/Place/Search">Wyszukaj</a></li>
-                        <li>
-                            <div class="container-fluid" ng-controller="searchCtrl">
-                                <input id="inputSearch" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text" 
-                                       typeahead="place.Name + ' ' + place.City + ' ' + place.Country for place in places | limitTo:5" 
-                                       class="form-control" typeahead-on-select="onSelect($item, $model, $label)" typeahead-min-length="2">
-                            </div>
-                        </li>
+                        <li><input id="inputSearch" type="text" placeholder="Podaj nazwę lub adres" /></li>
                     </ul>
                 </div>
             </div>
@@ -62,6 +55,5 @@
 
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
         <script src="~/Scripts/bootstrap.min.js"></script>
-    </div>
 </body>
 </html>
