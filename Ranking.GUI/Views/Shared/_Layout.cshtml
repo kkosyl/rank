@@ -42,8 +42,8 @@
                         <li><a href="~/Place/Search">Wyszukaj</a></li>
                         <li>
                             <div class="container-fluid" ng-controller="searchCtrl">
-                                <input id="inputSearch" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text" 
-                                       typeahead="place.Name + ' ' + place.City + ' ' + place.Country for place in places | limitTo:5" 
+                                <input id="inputSearch" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text"
+                                       typeahead="place.Name + ' ' + place.City + ' ' + place.Country for place in places | filter:$viewValue | limitTo:5"
                                        class="form-control" typeahead-on-select="onSelect($item, $model, $label)" typeahead-min-length="2">
                             </div>
                         </li>
