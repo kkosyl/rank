@@ -15,13 +15,12 @@ namespace Ranking.Domain.Models
 
         public int PlaceId { get; set; }
 
-        [Required]
         public string Content { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime AddDate { get; set; }
 
-        public int Grade { get; set; }
+        public double Rate { get; set; }
 
         public virtual User User { get; set; }
     }

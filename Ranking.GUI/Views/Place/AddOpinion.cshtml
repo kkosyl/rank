@@ -24,7 +24,8 @@
         </div>
 
         <div id="gradeLabel">
-            @Html.TextBoxFor(m => m.Grade, new { @class = "rating", @min = "0", @max = "5", @step = "1", @type = "number" })
+            <input type="text" class="rating" min="0" max="5" step="0.5" name="rate"/>
+            @*@Html.TextBoxFor(m => m.Rate, new { @class = "rating", @min = "0", @max = "5", @step = "0.5", @type = "number" })*@
         </div>
         <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
     </div>

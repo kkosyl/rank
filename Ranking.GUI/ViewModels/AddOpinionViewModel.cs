@@ -30,7 +30,6 @@ namespace Ranking.GUI.ViewModels
 
         [Required]
         [Display(Name = "Ocena")]
-        [RegularExpression("[1-5]")]
-        public int Grade { get; set; }
+        public double Rate { get; set; }
     }
 }

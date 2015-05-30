@@ -18,5 +18,7 @@ namespace Ranking.GUI.ViewModels
         public string Description { get; set; }
 
         public string Picture { get; set; }
+
+        public double Rate { get; set; }
     }
 }

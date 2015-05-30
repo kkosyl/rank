@@ -27,7 +27,7 @@ namespace Ranking.GUI.ViewModels
         public string Picture { get; set; }
 
         [Display(Name="Ocena")]
-        public int Grade { get; set; }
+        public double Rate { get; set; }
     }
     
 }

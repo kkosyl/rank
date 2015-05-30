@@ -20,6 +20,12 @@ namespace Ranking.GUI.ViewModels
         [Display(Name = "Miasto")]
         public string City { get; set; }
 
+        [Display(Name = "Adres")]
+        public string Address { get; set; }
+
+        [Display(Name = "Telefon")]
+        public string Telephone { get; set; }
+
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
@@ -28,5 +34,8 @@ namespace Ranking.GUI.ViewModels
 
         [Display(Name = "Opinie")]
         public IList<KeyValuePair<string, Opinion>> Opinions { get; set; }
+
+        [Display(Name = "Ocena")]
+        public double Rate { get; set; }
     }
 }

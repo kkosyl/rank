@@ -34,8 +34,9 @@ namespace Ranking.GUI.Controllers
                         Name = item.Name,
                         Country = item.Country,
                         City = item.City,
-                        Description = item.Descritpion,
-                        Picture = photoPath
+                        Description = item.Description,
+                        Picture = photoPath,
+                        Rate = item.Rate
                     });
                 }
             }
@@ -49,9 +50,12 @@ namespace Ranking.GUI.Controllers
             {
                 Country = place.Country,
                 City = place.City,
-                Description = place.Descritpion,
+                Description = place.Description,
                 Name = place.Name,
-                PlaceId = id
+                PlaceId = id,
+                Rate = place.Rate,
+                Telephone = place.Telephone,
+                Address = place.Address
             };
             model.Opinions = new List<KeyValuePair<string, Opinion>>();
             model.Picture = new List<string>();
@@ -80,12 +84,11 @@ namespace Ranking.GUI.Controllers
                 {
                     Content = item.Content,
                     AddDate = item.AddDate,
-                    Rate = item.Grade,
+                    Rate = item.Rate,
                     UserId = item.UserID,
                     UserNickname = _userRepository.Get(item.UserID).Nick
                 });
             }
-
             return PartialView(model);
         }
 
@@ -98,9 +101,13 @@ namespace Ranking.GUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOpinion(AddOpinionViewModel model, int id)
+        public ActionResult AddOpinion(AddOpinionViewModel model, FormCollection form, int id)
         {
             model.PlaceId = id;
+            model.Rate = Double.Parse(form["rate"], System.Globalization.CultureInfo.InvariantCulture);
+            if (ModelState["Rate"].Errors.Count > 0)
+                ModelState["Rate"].Errors.Clear();
+
             if (ModelState.IsValid)
             {
                 if (!_userRepository.GetAll().Any(u => u.Nick == model.Nick && u.Email == model.Email))
@@ -117,11 +124,14 @@ namespace Ranking.GUI.Controllers
                 {
                     AddDate = DateTime.Now,
                     Content = model.Content,
-                    Grade = model.Grade,
+                    Rate = model.Rate,
                     PlaceId = id,
                     UserID = uid
                 });
                 _opinionRepository.Commit();
+                var placeRate = _opinionRepository.GetAll().Where(o => o.PlaceId == id).Select(o => o.Rate);
+                _placeRepository.Get(id).Rate = placeRate.Sum() / placeRate.Count();
+                _placeRepository.Commit();
             }
             return RedirectToAction("Details", new { id = model.PlaceId });
         }
@@ -146,7 +156,11 @@ namespace Ranking.GUI.Controllers
                             Country = model.Country,
                             City = model.City,
                             Name = model.Name,
-                            Descritpion = model.Description
+                            Description = model.Description,
+                            Verified = false,
+                            Telephone = model.Telephone == null ? "" : model.Telephone,
+                            Address = model.Address == null ? "" : model.Address,
+                            Rate = 0
                         });
                         _placeRepository.Commit();
 
@@ -177,7 +191,6 @@ namespace Ranking.GUI.Controllers
                         throw;
                     }
                 }
-
             }
             return View();
         }
@@ -205,37 +218,21 @@ namespace Ranking.GUI.Controllers
 
         public ActionResult TopTen()
         {
-            var sortedOpinions = _opinionRepository.GetAll().OrderBy(o => o.PlaceId).Select(o => o);
-            var sorted = sortedOpinions.Select(o => o.PlaceId);
-            List<KeyValuePair<int, int>> averages = new List<KeyValuePair<int,int>>();
-            HashSet<int> notDoubled = new HashSet<int>();
-            foreach (var item in sorted)
-                notDoubled.Add(item);
-
-            foreach (var item in notDoubled)
-            {
-                var grades = sortedOpinions.Where(o => o.PlaceId == item).Select(o => o.Grade);
-                int count = grades.Count();
-                averages.Add(new KeyValuePair<int, int>(item, grades.Sum() / count));
-            }
-
-            averages.Sort(Compare);
-            averages.Take(10);
+            var sortedPlaces = _placeRepository.GetAll().OrderByDescending(o => o.Rate).Take(10);
 
             IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
 
-            foreach (var item in averages)
+            foreach (var item in sortedPlaces)
             {
-                var temp = _placeRepository.Get(item.Key);
                 model.Add(new PlaceListViewModel
                 {
-                    City = temp.City,
-                    Country = temp.Country,
-                    Description = temp.Descritpion,
-                    Grade = item.Value,
-                    Name = temp.Name,
-                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == item.Key).Source,
-                    PlaceId = temp.PlaceId
+                    City = item.City,
+                    Country = item.Country,
+                    Description = item.Description,
+                    Rate = item.Rate,
+                    Name = item.Name,
+                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == item.PlaceId).Source,
+                    PlaceId = item.PlaceId
                 });
             }
 
@@ -256,19 +253,14 @@ namespace Ranking.GUI.Controllers
                 {
                     City = place.City,
                     Country = place.Country,
-                    Description = place.Descritpion,
+                    Description = place.Description,
                     PlaceId = place.PlaceId,
                     Name = place.Name,
-                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == place.PlaceId).Source
+                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == place.PlaceId).Source,
+                    Rate = place.Rate
                 });
             }
-
             return Json(model, JsonRequestBehavior.AllowGet);
-        }
-
-        static int Compare(KeyValuePair<int, int> a, KeyValuePair<int, int> b)
-        {
-            return b.Value.CompareTo(a.Value);
         }
     }
 }

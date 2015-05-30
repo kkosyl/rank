@@ -15,6 +15,6 @@ namespace Ranking.GUI.ViewModels
 
         public DateTime AddDate { get; set; }
 
-        public int Rate { get; set; }
+        public double Rate { get; set; }
     }
 }

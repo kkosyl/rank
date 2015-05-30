@@ -25,6 +25,13 @@ namespace Ranking.GUI.ViewModels
         [Display(Name = "Miasto")]
         public string City { get; set; }
 
+        [Display(Name = "Adres")]
+        public string Address { get; set; }
+
+        [Display(Name = "Telefon")]
+        [RegularExpression("^([0-9]{9})|(([0-9]{3}-){2}[0-9]{3})$")]
+        public string Telephone { get; set; }
+
         [Required]
         [Display(Name = "Opis")]
         public string Description { get; set; }
