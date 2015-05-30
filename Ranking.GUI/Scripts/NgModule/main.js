@@ -9,11 +9,12 @@
             $scope.places = data;
         });
 
-        $scope.onSelect = function ($item, $model, $label) {
-            $scope.$item = $item;
-            $scope.$model = $model;
-            $scope.$label = $label;
+        $scope.onSelect = function ($item) {
             $window.location.href = '/Place/Details/' + $item.PlaceId;
+        };
+
+        $scope.imageSource = function (item) {
+            return item.Picture['medium'];
         };
     }]);
 

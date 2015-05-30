@@ -25,6 +25,9 @@ namespace Ranking.GUI.ViewModels
 
         [Display(Name="Zdjęcia")]
         public string Picture { get; set; }
+
+        [Display(Name="Ocena")]
+        public int Grade { get; set; }
     }
     
 }

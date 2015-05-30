@@ -901,6 +901,7 @@
     <Compile Include="ViewModels\OpinionsViewModel.cs" />
     <Compile Include="ViewModels\PlaceDetailsViewModel.cs" />
     <Compile Include="ViewModels\PlaceListViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

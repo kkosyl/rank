@@ -38,13 +38,14 @@
                     <ul class="nav navbar-nav">
                         <li><a href="~/Place/Index">Home</a></li>
                         <li><a href="~/Place/AddPlace">Dodaj miejsce</a></li>
-                        <li><a href="~/Place/Top10">Top 10</a></li>
+                        <li><a href="~/Place/TopTen">Top 10</a></li>
                         <li><a href="~/Place/Search">Wyszukaj</a></li>
                         <li>
                             <div class="container-fluid" ng-controller="searchCtrl">
                                 <input id="inputSearch" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text"
                                        typeahead="place.Name + ' ' + place.City + ' ' + place.Country for place in places | filter:$viewValue | limitTo:5"
-                                       class="form-control" typeahead-on-select="onSelect($item, $model, $label)" typeahead-min-length="2">
+                                       class="form-control" typeahead-on-select="onSelect($item)" typeahead-min-length="2"
+                                       typeahead-template-url="searchTemplate">
                             </div>
                         </li>
                     </ul>
@@ -65,3 +66,10 @@
     </div>
 </body>
 </html>
+
+<script type="text/ng-template" id="searchTemplate">
+    <a>
+        <img ng-src="{{match.model.Picture}}" height="50">
+        <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    </a>
+</script>

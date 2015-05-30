@@ -8,6 +8,7 @@ using Ranking.Domain.Models;
 using Ranking.GUI.ViewModels;
 using System.IO;
 using System.Diagnostics;
+using System.Dynamic;
 
 namespace Ranking.GUI.Controllers
 {
@@ -204,7 +205,41 @@ namespace Ranking.GUI.Controllers
 
         public ActionResult TopTen()
         {
-            return View();
+            var sortedOpinions = _opinionRepository.GetAll().OrderBy(o => o.PlaceId).Select(o => o);
+            var sorted = sortedOpinions.Select(o => o.PlaceId);
+            List<KeyValuePair<int, int>> averages = new List<KeyValuePair<int,int>>();
+            HashSet<int> notDoubled = new HashSet<int>();
+            foreach (var item in sorted)
+                notDoubled.Add(item);
+
+            foreach (var item in notDoubled)
+            {
+                var grades = sortedOpinions.Where(o => o.PlaceId == item).Select(o => o.Grade);
+                int count = grades.Count();
+                averages.Add(new KeyValuePair<int, int>(item, grades.Sum() / count));
+            }
+
+            averages.Sort(Compare);
+            averages.Take(10);
+
+            IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
+
+            foreach (var item in averages)
+            {
+                var temp = _placeRepository.Get(item.Key);
+                model.Add(new PlaceListViewModel
+                {
+                    City = temp.City,
+                    Country = temp.Country,
+                    Description = temp.Descritpion,
+                    Grade = item.Value,
+                    Name = temp.Name,
+                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == item.Key).Source,
+                    PlaceId = temp.PlaceId
+                });
+            }
+
+            return View(model);
         }
 
         public ActionResult Search()
@@ -214,7 +249,26 @@ namespace Ranking.GUI.Controllers
 
         public JsonResult GetPlaces()
         {
-            return Json(_placeRepository.GetAll().ToList(), JsonRequestBehavior.AllowGet);
+            IList<SearchViewModel> model = new List<SearchViewModel>();
+            foreach (var place in _placeRepository.GetAll())
+            {
+                model.Add(new SearchViewModel
+                {
+                    City = place.City,
+                    Country = place.Country,
+                    Description = place.Descritpion,
+                    PlaceId = place.PlaceId,
+                    Name = place.Name,
+                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == place.PlaceId).Source
+                });
+            }
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        static int Compare(KeyValuePair<int, int> a, KeyValuePair<int, int> b)
+        {
+            return b.Value.CompareTo(a.Value);
         }
     }
 }
