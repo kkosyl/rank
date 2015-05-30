@@ -45,6 +45,16 @@ a {
     text-decoration: none;
 }
 
+.btn-default {
+    background-image: url('Images/btnBg.png') !important;
+    color: #fff !important;
+}
+
+.btn-default:hover {
+    background-image: url('Images/btnBg1.png') !important;
+    color: #fff !important;
+}
+
 
 .capital {
     font-family: 'Roboto Slab';
@@ -454,8 +464,18 @@ html, body {
     font-size: 150%;
     margin-left: 3%;
     margin-right: 3%;
+    display: block;
 }
 
+.detailsTop {
+    height: 120px;
+    padding-top: 3%;
+}
+
+.detailsTop img{
+    float: right;
+    margin-right: 10px;
+    }
 
 
 
@@ -551,7 +571,17 @@ html, body {
         width: 80%;
     }
 
+#grade .rating-gly-star {
+    font-size: 50%;
+}
 
+.opinion {
+    margin-top: 20px;
+}
+
+#showOpinionBtn {
+    margin-bottom: 10px;
+}
 
 /*-----footer-----*/
 .footer {

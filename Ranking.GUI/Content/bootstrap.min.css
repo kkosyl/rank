@@ -3988,12 +3988,13 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     margin-top: 0;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
+    width: 100%;
 }
 
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+/*.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-}
+}*/
 
 .navbar-nav.pull-right > li > .dropdown-menu, .navbar-nav > li > .dropdown-menu.pull-right {
     right: 0;
