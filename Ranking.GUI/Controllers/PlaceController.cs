@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Ranking.Domain.Abstract;
 using Ranking.Domain.Models;
-using Ranking.GUI.ViewModels;
+using Ranking.GUI.ViewModels.Opinions;
+using Ranking.GUI.ViewModels.Places;
 using System.IO;
 using System.Diagnostics;
 using System.Dynamic;
@@ -24,7 +25,7 @@ namespace Ranking.GUI.Controllers
             IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
             if (_placeRepository.GetAll().Any())
             {
-                foreach (var item in _placeRepository.GetAll().OrderByDescending(h => h.PlaceId).Take(5))
+                foreach (var item in _placeRepository.GetAll().Where(p => p.Verified).OrderByDescending(h => h.PlaceId).Take(5))
                 {
                     int photoId = _pictureRepository.GetAll().Where(p => p.PlaceId == item.PlaceId).FirstOrDefault().PictureID;
                     string photoPath = _pictureRepository.Get(photoId).Source;
@@ -55,7 +56,8 @@ namespace Ranking.GUI.Controllers
                 PlaceId = id,
                 Rate = place.Rate,
                 Telephone = place.Telephone,
-                Address = place.Address
+                Address = place.Address,
+                Verified = place.Verified
             };
             model.Opinions = new List<KeyValuePair<string, Opinion>>();
             model.Picture = new List<string>();
@@ -195,30 +197,9 @@ namespace Ranking.GUI.Controllers
             return View();
         }
 
-        public ActionResult Delete(int id)
-        {
-            var pictures = _pictureRepository.GetAll().Where(p => p.PlaceId == id).Select(p => p).AsEnumerable();
-            foreach (var item in pictures)
-            {
-                string path = Request.MapPath(@"~/Content/Photos/" + item.Source);
-                if (System.IO.File.Exists(path))
-                    System.IO.File.Delete(path);
-                _pictureRepository.Delete(item);
-            }
-            var opinions = _opinionRepository.GetAll().Where(p => p.PlaceId == id).Select(p => p).AsEnumerable();
-            foreach (var item in opinions)
-                _opinionRepository.Delete(item);
-
-            _placeRepository.Delete(_placeRepository.Get(id));
-            _opinionRepository.Commit();
-            _placeRepository.Commit();
-            _pictureRepository.Commit();
-            return RedirectToAction("Index");
-        }
-
         public ActionResult TopTen()
         {
-            var sortedPlaces = _placeRepository.GetAll().OrderByDescending(o => o.Rate).Take(10);
+            var sortedPlaces = _placeRepository.GetAll().Where(p => p.Verified).OrderByDescending(o => o.Rate).Take(10);
 
             IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
 
@@ -247,7 +228,7 @@ namespace Ranking.GUI.Controllers
         public JsonResult GetPlaces()
         {
             IList<SearchViewModel> model = new List<SearchViewModel>();
-            foreach (var place in _placeRepository.GetAll())
+            foreach (var place in _placeRepository.GetAll().Where(p => p.Verified))
             {
                 model.Add(new SearchViewModel
                 {

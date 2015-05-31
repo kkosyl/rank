@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Ranking.GUI.ViewModels
+namespace Ranking.GUI.ViewModels.Opinions
 {
     public class AddOpinionViewModel
     {

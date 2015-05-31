@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Ranking.GUI.ViewModels.Places.PlaceListViewModel>
+
+@{
+    ViewBag.Title = "Zarządzaj";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<div ng-app="myModule">
+    <div ng-controller="adminCtrl">
+        <input type="text" placeholder="Szukaj.." ng-model="search" class="form-control" />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlaceId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+            <tbody ng-repeat="place in allPlaces | filter:search">
+                <tr>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.PlaceId }}</p>
+                    </td>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.Name }}</p>
+                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.Name" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.City }}</p>
+                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.City" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.Address }}</p>
+                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.Address" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.Telephone }}</p>
+                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.Telephone" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.Country }}</p>
+                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.Country" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="place.editMode">{{ place.Description }}</p>
+                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.Description" />
+                    </td>
+                    <td>
+                    <td>
+                        <div ng-if="place.Verified">
+                            <a data-ng-click="verify(place)" href="javascript:;">Anuluj weryfikację</a>
+                        </div>
+                        <div ng-if="!place.Verified">
+                            <a data-ng-click="verify(place)" href="javascript:;">Weryfikuj</a>
+                        </div>
+                        <p data-ng-hide="place.editMode"><a data-ng-click="toggleEdit(place)" href="javascript:;">Edytuj</a> | <a data-ng-click="delete(place)" href="javascript:;">Usuń</a></p>
+                        <p data-ng-show="place.editMode"><a data-ng-click="save(place)" href="javascript:;">Zapisz</a> | <a data-ng-click="toggleEdit(place)" href="javascript:;">Anuluj</a></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/NgModule/admin.js"></script>
+}

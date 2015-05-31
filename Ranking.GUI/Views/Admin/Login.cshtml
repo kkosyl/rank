@@ -1,0 +1,40 @@
+﻿@model Ranking.GUI.ViewModels.Admin.LogInViewModel
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("LogIn", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-lg-3">
+                    @Html.LabelFor(m => m.Login)
+                    @Html.TextBoxFor(m => m.Login)
+
+                    <br />
+
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    <br />
+                </div>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Zaloguj" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Wyloguj" class="btn btn-default" onclick="window.location.href='@Url.Action("LogOff", "Admin")'" />
+    </div>
+}

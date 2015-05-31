@@ -1,4 +1,4 @@
-﻿@model Ranking.GUI.ViewModels.PlaceDetailsViewModel
+﻿@model Ranking.GUI.ViewModels.Places.PlaceDetailsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,10 @@
     <div class="detailsTop">
         <span class="detailsName">@Model.Name</span>
         <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @Model.Rate</span>
-        <img src="~/Content/Images/Approved.png" />
+        @if(Model.Verified)
+        { 
+            <img src="~/Content/Images/Approved.png" />
+        }
 
     </div>
     <div class="details">

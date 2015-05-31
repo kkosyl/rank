@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Ranking.GUI.ViewModels
+namespace Ranking.GUI.ViewModels.Places
 {
     public class SearchViewModel
     {

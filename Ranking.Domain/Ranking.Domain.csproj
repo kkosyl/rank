@@ -49,6 +49,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\Repository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\PlacesDbContext.cs" />
     <Compile Include="Models\Opinion.cs" />
