@@ -12,7 +12,8 @@
                             <b>@item.UserNickname</b><br />
                             @item.AddDate.ToString("d") <br />
                             <span id="grade">
-                                <input class="rating" value="@item.Rate" data-disabled="true">
+                                @*<input class="rating form-control hide" value="2,5" data-disabled="true" data-step="0.5">*@
+                                <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @item.Rate</span>
                             </span>
                         <td>@item.Content</td>
                         </td>

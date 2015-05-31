@@ -41,12 +41,12 @@
                         <li><a href="~/Place/TopTen">Top 10</a></li>
                         <li><a href="~/Place/Search">Wyszukaj</a></li>
                         <li>
-                            @*<div class="container-fluid" ng-controller="searchCtrl">*@
-                            <input id="inputSearch" ng-controller="searchCtrl" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text"
+                            <div class="container-fluid" ng-controller="searchCtrl">
+                            <input id="inputSearch" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text"
                                    typeahead="place.Name + ' ' + place.City for place in places | filter:$viewValue | limitTo:5"
-                                   @*class="form-control"*@ typeahead-on-select="onSelect($item)" typeahead-min-length="2"
+                                   class="form-control" typeahead-on-select="onSelect($item)" typeahead-min-length="2"
                                    typeahead-template-url="searchTemplate">
-                            @*</div>*@
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -14,7 +14,6 @@
     src: url('../fonts/Roboto-Light.ttf') format('truetype');
 }
 
-
 /* Set padding to keep content from hitting the edges */
 /*.body-content {
         display: inline-block;
@@ -581,6 +580,15 @@ html, body {
 
 #showOpinionBtn {
     margin-bottom: 10px;
+}
+
+.doubleGrade .glyphicon{
+    color: #ffd800;
+}
+
+.doubleGrade {
+    font-size: 180%;
+    color: #000;
 }
 
 /*-----footer-----*/
