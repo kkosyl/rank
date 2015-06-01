@@ -9,9 +9,13 @@
     <div class="detailsTop">
         <span class="detailsName">@Model.Name</span>
         <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @Model.Rate</span>
-        @if(Model.Verified)
-        { 
+        @if (Model.Verified)
+        {
             <img src="~/Content/Images/Approved.png" />
+        }
+        else
+        {
+            <img src="~/Content/Images/NoApproved.png" />
         }
 
     </div>

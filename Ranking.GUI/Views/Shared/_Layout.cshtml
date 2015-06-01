@@ -38,7 +38,7 @@
                             <li>
                                 <div class="container-fluid" ng-controller="searchCtrl">
                                     <input id="inputSearch" ng-model="selected" placeholder="Podaj nazwę lub adres" type="text"
-                                           typeahead="place.Name + ' ' + place.City for place in places | filter:$viewValue | limitTo:5"
+                                           typeahead="place for place in places | filter:$viewValue"
                                            class="form-control" typeahead-on-select="onSelect($item)" typeahead-min-length="2"
                                            typeahead-template-url="searchTemplate">
                                 </div>
@@ -58,6 +58,7 @@
         </div>
 
         <div class="footer">
+            Twórcy serwisu nie odpowiadają za miejsca które nie są zatwierdzone.
             @Html.ActionLink("Panel Admina", "LogIn", "Admin")
         </div>
     </div>
@@ -75,8 +76,13 @@
 </html>
 
 <script type="text/ng-template" id="searchTemplate">
-    <a>
-        <img ng-src="{{match.model.Picture}}" height="50">
-        <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+    <a id="searchItem">
+        <img ng-src="{{match.model.Picture}}">
+        <span class="name" bind-html-unsafe="match.model.Name | typeaheadHighlight:query"></span>
+        <span class="rate">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="rateNumber">{{match.model.Rate}}</span>
+        </span>
+        <p><span class="location" bind-html-unsafe="match.model.City + ', ' + match.model.Country | typeaheadHighlight:query"></span></p>
     </a>
 </script>

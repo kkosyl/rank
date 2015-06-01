@@ -49,10 +49,10 @@ a {
     color: #fff !important;
 }
 
-.btn-default:hover {
-    background-image: url('Images/btnBg1.png') !important;
-    color: #fff !important;
-}
+    .btn-default:hover {
+        background-image: url('Images/btnBg1.png') !important;
+        color: #fff !important;
+    }
 
 
 .capital {
@@ -117,12 +117,54 @@ html, body {
     color: #000;
 }
 
-@media(max-width:1350px) {
-    #navbar #inputSearch {
+#navbar #searchItem {
+    width: 350px;
+}
+
+    #navbar #searchItem img {
+        float: left;
+        height: 60px;
+    }
+
+    #navbar #searchItem .rate {
+        float:right;
+        margin-top: 0;
+    }
+
+    #navbar #searchItem .glyphicon {
+        color: #FFD800;
+        font-size: 100%;
+    }
+
+    #navbar #searchItem .rateNumber {
+        color: #000;
+        text-align: left;
+    }
+
+    #navbar #searchItem .name {
+        font-size: 150%;
+        font-family: Roboto-Bold;
+        margin-top: 0px;
+        margin-left: 5%;
+    }
+
+    #navbar #searchItem .location {
+        word-wrap: normal;
+        font-family: Roboto-Light;
+        font-size: 120%;
+        margin-left: 5%;
+    }
+
+@media(max-width:1300px) {
+    /*#navbar #inputSearch {
         margin-top: 1% !important;
         display: inline-block;
         margin-left: 15%;
         width: 70% !important;
+    }*/
+
+    #navbar #searchItem, #navbar #inputSearch {
+        display: none;
     }
 }
 /*-----Menu-----*/
@@ -471,9 +513,9 @@ html, body {
     padding-top: 3%;
 }
 
-.detailsTop img{
-    float: right;
-    margin-right: 10px;
+    .detailsTop img {
+        float: right;
+        margin-right: 10px;
     }
 
 
@@ -582,7 +624,7 @@ html, body {
     margin-bottom: 10px;
 }
 
-.doubleGrade .glyphicon{
+.doubleGrade .glyphicon {
     color: #ffd800;
 }
 
@@ -591,10 +633,39 @@ html, body {
     color: #000;
 }
 
+
+
+
+
+/*-----AddPlace----*/
+.addLabel {
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 345px;
+}
+
+    .addLabel input {
+        height: 30px;
+        float: right;
+    }
+
+    .addLabel label {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .addLabel .btn-default {
+        width: 250px;
+    }
+
+    .addLabel input[type=file] {
+    }
 /*-----footer-----*/
 .footer {
     background-color: #0477CA;
     height: 100px;
     width: auto;
     color: white;
+    text-align: right;
+    padding-top: 80px;
 }

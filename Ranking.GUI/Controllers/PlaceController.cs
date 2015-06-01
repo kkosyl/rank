@@ -25,7 +25,7 @@ namespace Ranking.GUI.Controllers
             IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
             if (_placeRepository.GetAll().Any())
             {
-                foreach (var item in _placeRepository.GetAll().Where(p => p.Verified).OrderByDescending(h => h.PlaceId).Take(5))
+                foreach (var item in _placeRepository.GetAll().OrderByDescending(h => h.PlaceId).Take(5))
                 {
                     int photoId = _pictureRepository.GetAll().Where(p => p.PlaceId == item.PlaceId).FirstOrDefault().PictureID;
                     string photoPath = _pictureRepository.Get(photoId).Source;
@@ -199,7 +199,7 @@ namespace Ranking.GUI.Controllers
 
         public ActionResult TopTen()
         {
-            var sortedPlaces = _placeRepository.GetAll().Where(p => p.Verified).OrderByDescending(o => o.Rate).Take(10);
+            var sortedPlaces = _placeRepository.GetAll()/*.Where(p => p.Verified)*/.OrderByDescending(o => o.Rate).Take(10);
 
             IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
 
@@ -228,7 +228,7 @@ namespace Ranking.GUI.Controllers
         public JsonResult GetPlaces()
         {
             IList<SearchViewModel> model = new List<SearchViewModel>();
-            foreach (var place in _placeRepository.GetAll().Where(p => p.Verified))
+            foreach (var place in _placeRepository.GetAll()/*.Where(p => p.Verified)*/)
             {
                 model.Add(new SearchViewModel
                 {
