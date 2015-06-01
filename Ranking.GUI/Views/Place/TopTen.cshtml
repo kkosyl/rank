@@ -4,13 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="midContent">
-    <div class="mid">
+    <div class="top">
         <span class="capital">Top 10:</span><br />
 
         @foreach (var item in Model)
         {
-            <div id="midHotel">
+            <div id="topTen">
                 <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
                     <div id="midImg"><img src="~/@item.Picture" /></div>
                     <div id="midDescription">
@@ -24,4 +23,3 @@
             </div>
         }
     </div>
-</div>

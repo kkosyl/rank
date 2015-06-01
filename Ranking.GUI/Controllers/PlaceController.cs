@@ -132,7 +132,8 @@ namespace Ranking.GUI.Controllers
                 });
                 _opinionRepository.Commit();
                 var placeRate = _opinionRepository.GetAll().Where(o => o.PlaceId == id).Select(o => o.Rate);
-                _placeRepository.Get(id).Rate = placeRate.Sum() / placeRate.Count();
+                double srednia = Math.Round(placeRate.Sum() / placeRate.Count(), 2);
+                _placeRepository.Get(id).Rate = srednia;
                 _placeRepository.Commit();
             }
             return RedirectToAction("Details", new { id = model.PlaceId });

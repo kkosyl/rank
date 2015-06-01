@@ -281,14 +281,14 @@ html, body {
     margin-right: 2%;
 }
 
-    .mid #midHotel {
+    .mid #midPlace {
         height: 150px;
         width: 100%;
         border-bottom: 1px #0477CA solid;
         display: inline-block;
     }
 
-        .mid #midHotel a:hover {
+        .mid #midPlace a:hover {
             display: block;
             width: 100%;
             height: 100%;
@@ -302,8 +302,9 @@ html, body {
         margin-top: 25px;
     }
 
-    .mid #midHotel img {
+    .mid #midPlace img {
         height: 100px;
+        width: 150px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -660,6 +661,70 @@ html, body {
 
     .addLabel input[type=file] {
     }
+
+
+
+/*----TopTen-----*/
+.top {
+    margin: 0 3% 0 3%;
+}
+
+.top #topTen {
+        height: 150px;
+        width: 100%;
+        border-bottom: 1px #0477CA solid;
+        display: inline-block;
+    }
+
+        .top #topTen a:hover {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 119, 202, 0.36);
+            text-decoration: none;
+        }
+
+    .top #midImg {
+        display: inline-block;
+        width: 150px;
+        margin-top: 25px;
+    }
+
+    .top #topTen img {
+        height: 100px;
+        width: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top #midDescription {
+        display: block;
+        margin-left: 180px;
+        margin-top: -100px;
+    }
+
+        .top #midDescription .hotelName {
+            font-family: Roboto-Bold;
+            font-size: 200%;
+        }
+
+        .top #midDescription p {
+            font-family: Roboto-Light;
+            font-size: 140%;
+            color: #000;
+        }
+
+
+/*----SearchView----*/
+.searchView {
+    margin: 0 3% 0 3%;
+}
+.searchView input{
+    display: inline-block;
+    width: 33%;
+}
+
 /*-----footer-----*/
 .footer {
     background-color: #0477CA;

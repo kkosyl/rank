@@ -17,9 +17,8 @@ namespace Ranking.GUI.ViewModels.Opinions
         public string Nick { get; set; }
 
         [Required]
-        [StringLength(20)]
-        [DataType(DataType.EmailAddress)]
         [Display(Name = "E-mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]
