@@ -61,20 +61,18 @@
         }
     </div>
 
-
-
-
-    <div id="city">
+    <div id="city" ng-app="myModule" ng-controller="citiesCountriesCtrl">
 
         <h3>Polska:</h3>
-        <li><a href="#">&rsaquo;&nbsp;Kraków</a></li><br />
-        <li><a href="#">&rsaquo;&nbsp;Warszawa</a></li><br />
-        <li><a href="#">&rsaquo;&nbsp;Wrocław</a></li><br />
+
+        <div ng-repeat="city in polishCities">
+            <li><a ng-click="onCitySelect(city)">&rsaquo;&nbsp;{{city.name}}</a></li><br />
+        </div>
 
         <h3>Świat:</h3>
-        <li><a href="#">&rsaquo;&nbsp;Egipt</a></li><br />
-        <li><a href="#">&rsaquo;&nbsp;Hiszpania</a></li><br />
-        <li><a href="#">&rsaquo;&nbsp;Włochy</a></li><br />
+        <div ng-repeat="country in popularCountries">
+            <li><a ng-click="onCountrySelect(country)">&rsaquo;&nbsp;{{country.name}}</a></li><br />
+        </div>
 
     </div>
 </div>

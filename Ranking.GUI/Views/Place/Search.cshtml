@@ -9,13 +9,13 @@
 <div ng-app="myModule">
     <div ng-controller="searchCtrl" class="searchView">
         <input type="text" placeholder="Szukaj po nazwie.." ng-model="search.Name" class="form-control" />
-        <input type="text" placeholder="Szukaj wg nazwy kraju.." ng-model="search.Country" class="form-control" />
         <input type="text" placeholder="Szukaj wg miasta.." ng-model="search.City" class="form-control" />
+        <input type="text" placeholder="Szukaj wg nazwy kraju.." ng-model="search.Country" class="form-control" />
 
 
         <div class="top">
             <div id="topTen" ng-repeat="p in places | filter:search">
-                <a href="@Url.Action("Details", "Place", new { id = {{p.PlaceId}} })">
+                <a ng-click="onSelect(p)">
                     <div id="midImg"><img src="~/{{p.Picture}}" /></div>
                     <div id="midDescription">
                         <span class="hotelName">{{p.Name}}</span><br />
