@@ -61,17 +61,17 @@
         }
     </div>
 
-    <div id="city" ng-app="myModule" ng-controller="citiesCountriesCtrl">
+    <div id="city" ng-app="myModule" ng-controller="searchCtrl">
 
         <h3>Polska:</h3>
 
         <div ng-repeat="city in polishCities">
-            <li><a ng-click="onCitySelect(city)">&rsaquo;&nbsp;{{city.name}}</a></li><br />
+            <li><a ng-click="onCitySelect(city)">&rsaquo;&nbsp;{{city}}</a></li><br />
         </div>
 
         <h3>Świat:</h3>
         <div ng-repeat="country in popularCountries">
-            <li><a ng-click="onCountrySelect(country)">&rsaquo;&nbsp;{{country.name}}</a></li>
+            <li><a ng-click="onCountrySelect(country)">&rsaquo;&nbsp;{{country}}</a></li>
         </div>
 
     </div>

@@ -3,6 +3,7 @@
 
     myModule.controller('searchCtrl', ['$scope', '$http', '$window', '$rootScope', function ($scope, $http, $window, $rootScope) {
         $scope.selected = "";
+        $scope.search = { Name: '', City: '', Country: '' }
 
         $http.get('/Place/GetPlaces')
         .success(function (data) {
@@ -17,15 +18,32 @@
             return item.Picture['medium'];
         };
 
-        //$rootScope.$on('search', function (event, query) {
-        //    console.log(query);
-        //    if (query.typ === 'City') {
-        //        $scope.search = query.name;
-        //    }
-        //    else {
-        //        $scope.search.Country = query.name;
-        //    }
-        //});
+        $http.get('/Place/PolishCities')
+        .success(function (data) {
+            $scope.polishCities = data;
+        })
+        .error(function (message) {
+            alert("Błąd przy pobieraniu danych");
+        });
+
+        $http.get('/Place/PopularCountries')
+        .success(function (data) {
+            $scope.popularCountries = data;
+        })
+        .error(function (message) {
+            alert("Błąd przy pobieraniu danych");
+        });
+
+        $scope.onCitySelect = function ($city) {
+            $scope.search = { Name: '', City: $city, Country: '' };
+            $window.location.href = '/Place/Search';
+        };
+
+        $scope.onCountrySelect = function ($country) {
+            $scope.search = { Name: '', City: '', Country: $country };
+            
+            $window.location.href = '/Place/Search';
+        };
     }]);
 
     myModule.controller('collapseCtrl', function ($scope) {

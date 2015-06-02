@@ -300,6 +300,7 @@ html, body {
         display: inline-block;
         width: 150px;
         margin-top: 25px;
+        margin-left: 10px;
     }
 
     .mid #midPlace img {
@@ -654,14 +655,14 @@ html, body {
 .descriptionView #descript {
     float: right;
     display: inline-block;
-    margin-top: 3%;
-    margin-right: 10%;
+    margin-right: 40%;
+    margin-bottom: 30px;
     
 }
 
     .descriptionView #descript textarea {
-        height: 200px;
-        width: 450px;
+        height: 350px;
+        width: 200%;
     }
 
 .descriptionView #descript label {
@@ -711,6 +712,7 @@ html, body {
         display: inline-block;
         width: 150px;
         margin-top: 25px;
+        margin-left: 10px;
     }
 
     .top #topTen img {
@@ -745,6 +747,7 @@ html, body {
 }
 .searchView input{
     display: inline-block;
+    margin-bottom: 10px;
     width: 32.5%;
 }
 

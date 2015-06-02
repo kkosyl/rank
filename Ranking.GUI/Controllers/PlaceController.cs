@@ -248,16 +248,16 @@ namespace Ranking.GUI.Controllers
         public JsonResult PolishCities()
         {
             var cities = _placeRepository.GetAll().Where(p => p.Country == "Polska").Select(p => p.City).GroupBy(p => p)
-                .Select(places => new { City = places.Key, Count = places.Count() });
-            var result = cities.OrderBy(p => p.Count).Select(p => new { name = p.City, typ = "City"}).Take(3);
+                .Select(places => new { Name = places.Key, Count = places.Count() });
+            var result = cities.OrderBy(p => p.Count).Select(p => p.Name).Take(3);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult PopularCountries()
         {
             var cities = _placeRepository.GetAll().Where(p=>p.Country != "Polska").Select(p => p.Country).GroupBy(p => p)
-                .Select(places => new { Country = places.Key, Count = places.Count() });
-            var result = cities.OrderBy(p => p.Count).Select(p => new { name = p.Country, typ = "Country"}).Take(3);
+                .Select(places => new { Name = places.Key, Count = places.Count() });
+            var result = cities.OrderBy(p => p.Count).Select(p => p.Name).Take(3);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
