@@ -639,30 +639,53 @@ html, body {
 
 
 /*-----AddPlace----*/
-.addLabel {
+.descriptionView .addLabel {
     margin-left: 3%;
     margin-top: 3%;
     width: 345px;
+    display: inline-block;
 }
 
-    .addLabel input {
+    .descriptionView .addLabel input {
         height: 30px;
         float: right;
     }
 
-    .addLabel label {
+.descriptionView #descript {
+    float: right;
+    display: inline-block;
+    margin-top: 3%;
+    margin-right: 10%;
+    
+}
+
+    .descriptionView #descript textarea {
+        height: 200px;
+        width: 450px;
+    }
+
+.descriptionView #descript label {
         margin-bottom: 20px;
         font-size: 20px;
     }
 
-    .addLabel .btn-default {
+
+    .descriptionView .addLabel label {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .descriptionView .addLabel .btn-default {
         width: 250px;
     }
 
-    .addLabel input[type=file] {
+    .descriptionView .addLabel input[type=file] {
     }
 
-
+.descriptionView .btn-default {
+    width: 20%;
+    margin-left: 40%;
+}
 
 /*----TopTen-----*/
 .top {
@@ -733,4 +756,9 @@ html, body {
     color: white;
     text-align: right;
     padding-top: 80px;
+}
+
+
+.edit .table input {
+    max-width: 100px;
 }

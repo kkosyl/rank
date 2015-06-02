@@ -6,54 +6,59 @@
 
 <span class="capital">Dodaj swoje miejsce</span>
 
-@using (Html.BeginForm("AddPlace", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+<div class="descriptionView">
+    @using (Html.BeginForm("AddPlace", "Place", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="addLabel">
-        <div>
-            @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
+        <div class="addLabel">
+            <div>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.City)
+                @Html.TextBoxFor(m => m.City)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Telephone)
+                @Html.TextBoxFor(m => m.Telephone)
+            </div>
+
+            <div>
+                @Html.LabelFor(m => m.Country)
+                @Html.TextBoxFor(m => m.Country)
+            </div>
+
+
+
+            <div>
+                <br />
+                @Html.LabelFor(m => m.Picture)
+                @Html.TextBoxFor(m => m.Picture, new { type = "file", multiple = "true" })
+            </div>
+
+
         </div>
 
-        <div>
-            @Html.LabelFor(m => m.City)
-            @Html.TextBoxFor(m => m.City)
-        </div>
-
-        <div>
-            @Html.LabelFor(m => m.Address)
-            @Html.TextBoxFor(m => m.Address)
-        </div>
-
-        <div>
-            @Html.LabelFor(m => m.Telephone)
-            @Html.TextBoxFor(m => m.Telephone)
-        </div>
-
-        <div>
-            @Html.LabelFor(m => m.Country)
-            @Html.TextBoxFor(m => m.Country)
-        </div>
-
-        <div>
+        <div id="descript">
             @Html.LabelFor(m => m.Description)
-            @Html.TextBoxFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description)
+
         </div>
+            <input type="submit" value="Dodaj" class="btn btn-default" />
+        
+}</div>
 
-        <div>
-            <br />
-            @Html.LabelFor(m => m.Picture)
-            @Html.TextBoxFor(m => m.Picture, new { type = "file", multiple = "true" })
-        </div>
-
-        <input type="submit" value="Dodaj" class="btn btn-default" />
-
-    </div>
-}
-
-@*<div>
-        @Html.ActionLink("Wróć", "Index")
-    </div>*@
+        @*<div>
+                @Html.ActionLink("Wróć", "Index")
+            </div>*@

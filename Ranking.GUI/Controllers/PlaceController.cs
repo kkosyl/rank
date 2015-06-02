@@ -235,7 +235,7 @@ namespace Ranking.GUI.Controllers
                 {
                     City = place.City,
                     Country = place.Country,
-                    Description = place.Description,
+                    //Description = place.Description,
                     PlaceId = place.PlaceId,
                     Name = place.Name,
                     Picture = _pictureRepository.GetAll().First(p => p.PlaceId == place.PlaceId).Source,
@@ -255,7 +255,7 @@ namespace Ranking.GUI.Controllers
 
         public JsonResult PopularCountries()
         {
-            var cities = _placeRepository.GetAll().Select(p => p.Country).GroupBy(p => p)
+            var cities = _placeRepository.GetAll().Where(p=>p.Country != "Polska").Select(p => p.Country).GroupBy(p => p)
                 .Select(places => new { Country = places.Key, Count = places.Count() });
             var result = cities.OrderBy(p => p.Count).Select(p => new { name = p.Country, typ = "Country"}).Take(3);
             return Json(result, JsonRequestBehavior.AllowGet);

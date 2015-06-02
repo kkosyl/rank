@@ -28,7 +28,6 @@ namespace Ranking.Domain.Models
         public string Country { get; set; }
 
         [Required]
-        [StringLength(500)]
         public string Description { get; set; }
 
         public bool Verified { get; set; }

@@ -25,7 +25,7 @@ namespace Ranking.GUI.ViewModels.Places
         [Display(Name = "Miasto")]
         public string City { get; set; }
 
-        [Display(Name = "Adres")]
+        [Display(Name = "Ulica")]
         public string Address { get; set; }
 
         [Display(Name = "Telefon")]

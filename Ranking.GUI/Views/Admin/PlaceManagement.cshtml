@@ -8,7 +8,7 @@
 <h2>@ViewBag.Title</h2>
 
 
-<div ng-app="myModule">
+<div ng-app="myModule" class="edit">
     <div ng-controller="adminCtrl">
         <input type="text" placeholder="Szukaj.." ng-model="search" class="form-control" />
         <table class="table">
@@ -39,7 +39,8 @@
             <tbody ng-repeat="place in allPlaces | filter:search">
                 <tr>
                     <td>
-                        <p data-ng-hide="place.editMode">{{ place.PlaceId }}</p>
+                        {{ place.PlaceId }}
+
                     </td>
                     <td>
                         <p data-ng-hide="place.editMode">{{ place.Name }}</p>
@@ -63,7 +64,7 @@
                     </td>
                     <td>
                         <p data-ng-hide="place.editMode">{{ place.Description }}</p>
-                        <input data-ng-show="place.editMode" type="text" data-ng-model="place.Description" />
+                        <textarea data-ng-show="place.editMode" data-ng-model="place.Description" ></textarea>
                     </td>
                     <td>
                     <td>
