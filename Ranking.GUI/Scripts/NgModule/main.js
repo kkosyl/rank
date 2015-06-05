@@ -41,7 +41,11 @@
 
         $scope.onCountrySelect = function ($country) {
             $scope.search = { Name: '', City: '', Country: $country };
-            
+            $window.location.href = '/Place/Search';
+        };
+
+        $scope.onCountrySelect = function ($verified) {
+            $scope.search = { Name: '', City: '', Country: '', Verified: $verified };
             $window.location.href = '/Place/Search';
         };
     }]);

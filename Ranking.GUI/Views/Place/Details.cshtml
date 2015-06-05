@@ -8,25 +8,25 @@
 
     <div class="detailsTop">
         <span class="detailsName">@Model.Name</span>
-        <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @Model.Rate</span>
+        <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @Model.Rate/5.0</span>
         @if (Model.Verified)
         {
-            <img src="~/Content/Images/Approved.png" alt="To miejsce nie jest potwierdzone"/>
+            <img src="~/Content/Images/Approved.png" alt="To miejsce nie jest potwierdzone" />
         }
-        else
-        {
-            <img src="~/Content/Images/NoApproved.png" style="opacity: 0.1"/>
-        }
-
+        
     </div>
     <div class="details">
         <div class="contact">
             <span class="capital">Kontakt:</span><br />
             <ul>
-                <li><b>&rsaquo;&nbsp;Kraj: </b>@Model.Country</li>
-                <li><b>&rsaquo;&nbsp;Miasto: </b>@Model.City</li>
-                <li><b>&rsaquo;&nbsp;Ulica: </b>@Model.Address</li>
-                <li><b>&rsaquo;&nbsp;Tel: </b>@Model.Telephone</li>
+                <li><b>Kraj: </b>@Model.Country</li>
+                <li><b>Miasto: </b>@Model.City</li>
+                <li><b>Ulica: </b>@Model.Address</li>
+                <li><b>Tel: </b>@Model.Telephone</li>
+                <li>
+                    <iframe frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"
+                            src="https://maps.google.com/maps?q=@Model.Address, @Model.City&output=embed"></iframe>
+                </li>
             </ul>
 
         </div>
@@ -41,16 +41,15 @@
             <span class="close"></span>
         </div>
     </div>
+        <div class="description">
+            <span class="capital" ng-click="isCollapsed = !isCollapsed">Opis:</span><br />
+            <span collapse="isCollapsed">@Model.Description</span>
+        </div>
 
-    <div class="description">
-        <span class="capital">Opis:</span><br />
-        @Model.Description
+        @{Html.RenderAction("AddOpinion", "Place", new { id = Model.PlaceId });}
+        @{Html.RenderAction("Opinions", "Place", new { id = Model.PlaceId });}
+
     </div>
-
-    @{Html.RenderAction("AddOpinion", "Place", new { id = Model.PlaceId });}
-    @{Html.RenderAction("Opinions", "Place", new { id = Model.PlaceId });}
-
-</div>
 
 
 

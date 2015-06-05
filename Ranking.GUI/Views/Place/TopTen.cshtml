@@ -4,22 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="top">
-        <span class="capital">Top 10:</span><br />
-
+<div class="top">
+    <span class="capital">Top 10:</span><br />
+    <ol type="1">
         @foreach (var item in Model)
         {
-            <div id="topTen">
-                <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
-                    <div id="midImg"><img src="~/@item.Picture" /></div>
-                    <div id="midDescription">
-                        <span class="hotelName">@item.Name</span><br />
-                        <p>@item.City</p>
-                        @*<input class="rating" value="@item.Rate" data-disabled="true">*@
-                        <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @item.Rate</span>
 
-                    </div>
-                </a>
+
+            <div id="topTen">
+                <li>
+                    <a href="@Url.Action("Details", "Place", new { id = item.PlaceId })">
+                        <div id="midImg"><img src="~/@item.Picture" /></div>
+                        <div id="midDescription">
+                            <span class="hotelName">@item.Name</span><br />
+                            <p>@item.City</p>
+                            @*<input class="rating" value="@item.Rate" data-disabled="true">*@
+                            <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> @item.Rate</span>
+
+                        </div>
+                    </a>
+                </li>
             </div>
+
+
         }
-    </div>
+    </ol>
+</div>

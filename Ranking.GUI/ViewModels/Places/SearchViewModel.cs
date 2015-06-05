@@ -15,6 +15,8 @@ namespace Ranking.GUI.ViewModels.Places
 
         public string Country { get; set; }
 
+        public bool Verified { get; set; }
+
         public string Description { get; set; }
 
         public string Picture { get; set; }

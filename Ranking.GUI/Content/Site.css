@@ -61,20 +61,20 @@ a {
     margin-bottom: 20px;
 }
 
-@media (max-width: 470px) {
+/*@media (max-width: 470px) {
     html, body {
         background: none !important;
     }
-}
+}*/
 
 html, body {
     font-family: "Arial" serif;
-    background-image: url('Images/sea_img.png');
+    background-image: url('Images/sea_img2.png');
     background-position-x: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
-    margin: 2% 10% 2% 10%;
+    margin: 0 2% 0 2%;
 }
 
 
@@ -82,6 +82,7 @@ html, body {
     min-height: 550px;
     background: #fff;
     overflow: auto;
+    padding: 1% 1.5% 0 1.5%;
 }
 
 .wrap {
@@ -155,7 +156,7 @@ html, body {
         margin-left: 5%;
     }
 
-@media(max-width:1300px) {
+@media(max-width:1024px) {
     /*#navbar #inputSearch {
         margin-top: 1% !important;
         display: inline-block;
@@ -250,7 +251,7 @@ html, body {
 }
 
 @media (max-width: 960px) {
-    #city a, li, h3 {
+    #city a li h3 {
         display: none;
     }
 }
@@ -361,8 +362,8 @@ html, body {
 
 
 .gallery {
-    width: 500px;
-    min-height: 300px;
+    width: 600px;
+    min-height: 500px;
     margin-left: 20px;
     margin-top: 30px;
     background: #fff;
@@ -370,9 +371,9 @@ html, body {
 
     .gallery a {
         display: inline-block;
-        height: 100px;
+        height: 120px;
         position: relative;
-        width: 150px;
+        width: 190px;
     }
 
         .gallery a img {
@@ -420,6 +421,7 @@ html, body {
             -o-transition-duration: 0.5s;
             transition-property: width, height, top, bottom, left, right, z-index, border;
             transition-duration: 0.5s;
+            background-color: rgba(0, 0, 0, 0.66);
         }
 
         /* custom focus rules */
@@ -480,13 +482,22 @@ html, body {
         height: auto !important;
         float: left !important;
         border-left: none !important;
+        font-family: Roboto-Light;
+    font-size: 15px;
+    }
+    .contact ul li {
+        list-style-type: none;
+    }
+    .contact iframe {
+        width: 80%;
+        height: 100% !important;
     }
 }
 
 
 .contact {
     width: 50%;
-    height: 300px;
+    height: 500px;
     display: inline-block;
     float: right;
     border-left: 1px solid #0477CA;
@@ -497,6 +508,11 @@ html, body {
 
     .contact ul li {
         list-style-type: none;
+    }
+
+    .contact iframe {
+        width: 80%;
+        height: 300px;
     }
 
 .description {
@@ -557,7 +573,7 @@ html, body {
         width: 100% !important;
     }
 
-        #nickLabel input, #emailLabel input, #opinionLabel textarea, #gradeLabel input {
+        #nickLabel input, #emailLabel input, #opinionLabel textarea {
             height: 30px;
             width: 90% !important;
             clear: both;
@@ -568,8 +584,19 @@ html, body {
         }
 
     .addOpinion .btn-default {
-        margin-top: 20px !important;
+        display: block;
+      margin: 0 auto;
+        margin-bottom: 10px;
     }
+    .star-rating {
+        width: 50% !important;
+        margin: 0 auto !important;
+        text-align: center;
+    }
+
+    /*.rating-gly-star {
+        margin-left:25%;
+    }*/
 }
 
 #opinionLabel {
@@ -598,6 +625,7 @@ html, body {
     display: inline-block;
     margin-left: 32%;
     margin-bottom: 20px;
+
 }
 
 /*----opinions----*/
@@ -653,15 +681,13 @@ html, body {
     }
 
 .descriptionView #descript {
-    float: right;
     display: inline-block;
-    margin-right: 40%;
     margin-bottom: 30px;
     
 }
 
     .descriptionView #descript textarea {
-        height: 350px;
+        height: 300px;
         width: 200%;
     }
 
@@ -748,8 +774,12 @@ html, body {
 .searchView input{
     display: inline-block;
     margin-bottom: 10px;
-    width: 32.5%;
+    width: 26%;
 }
+
+    .searchView #checkSearch {
+        width: auto;
+    }
 
 /*-----footer-----*/
 .footer {
@@ -759,6 +789,7 @@ html, body {
     color: white;
     text-align: right;
     padding-top: 80px;
+    font-size: 80%;
 }
 
 

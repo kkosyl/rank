@@ -239,7 +239,8 @@ namespace Ranking.GUI.Controllers
                     PlaceId = place.PlaceId,
                     Name = place.Name,
                     Picture = _pictureRepository.GetAll().First(p => p.PlaceId == place.PlaceId).Source,
-                    Rate = place.Rate
+                    Rate = place.Rate,
+                    Verified = place.Verified
                 });
             }
             return Json(model, JsonRequestBehavior.AllowGet);
