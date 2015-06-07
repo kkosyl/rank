@@ -110,8 +110,6 @@ namespace Ranking.GUI.Controllers
             if (ModelState["Rate"].Errors.Count > 0)
                 ModelState["Rate"].Errors.Clear();
 
-            if (ModelState.IsValid)
-            {
                 if (!_userRepository.GetAll().Any(u => u.Nick == model.Nick && u.Email == model.Email))
                 {
                     _userRepository.Add(new User
@@ -135,7 +133,7 @@ namespace Ranking.GUI.Controllers
                 double srednia = Math.Round(placeRate.Sum() / placeRate.Count(), 2);
                 _placeRepository.Get(id).Rate = srednia;
                 _placeRepository.Commit();
-            }
+
             return RedirectToAction("Details", new { id = model.PlaceId });
         }
 

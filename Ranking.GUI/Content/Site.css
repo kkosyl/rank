@@ -69,12 +69,16 @@ a {
 
 html, body {
     font-family: "Arial" serif;
-    background-image: url('Images/sea_img2.png');
-    background-position-x: top;
+    background-image: url('Images/sea_img.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
     margin: 0 2% 0 2%;
+}
+@media (max-width: 1060px) {
+    html, body {
+        margin: 0 0 0 0;
+    }
 }
 
 
@@ -225,9 +229,13 @@ html, body {
         margin-bottom: 30px;
     }
 
+        #city .capital {
+            font-size: 150%;
+        }
+
         #city h3 {
             font-family: Roboto-Bold;
-            font-size: 22px;
+            font-size: 150%;
             color: #000;
         }
 
@@ -238,7 +246,7 @@ html, body {
 
             #city li a {
                 color: #000;
-                font-size: 17px;
+                font-size: 100%;
                 line-height: 2;
                 font-family: Roboto-MediumItalic;
                 text-decoration-color: #000;
@@ -251,7 +259,7 @@ html, body {
 }
 
 @media (max-width: 960px) {
-    #city a li h3 {
+    #city {
         display: none;
     }
 }
@@ -683,7 +691,8 @@ html, body {
 .descriptionView #descript {
     display: inline-block;
     margin-bottom: 30px;
-    
+    float: right;
+    margin-right: 45%;
 }
 
     .descriptionView #descript textarea {
@@ -716,7 +725,7 @@ html, body {
 
 /*----TopTen-----*/
 .top {
-    margin: 0 3% 0 3%;
+    /*margin: 0 3% 0 3%;*/
 }
 
 .top #topTen {
@@ -724,6 +733,7 @@ html, body {
         width: 100%;
         border-bottom: 1px #0477CA solid;
         display: inline-block;
+        margin-top: 5px;
     }
 
         .top #topTen a:hover {
@@ -733,6 +743,10 @@ html, body {
             background: rgba(4, 119, 202, 0.36);
             text-decoration: none;
         }
+
+    .top ol {
+        margin-left: -20px;
+    }
 
     .top #midImg {
         display: inline-block;

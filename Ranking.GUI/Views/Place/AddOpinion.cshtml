@@ -1,5 +1,6 @@
 ﻿@model Ranking.GUI.ViewModels.Opinions.AddOpinionViewModel
 <script src="~/Scripts/jRate.js"></script>
+
 @using (Html.BeginForm("AddOpinion", "Place", new { id = Model.PlaceId }))
 {
     @Html.AntiForgeryToken()
@@ -24,9 +25,10 @@
         </div>
 
         <div id="gradeLabel">
-            <input type="text" class="rating" min="0" max="5" data-step="0.5" name="rate"/>
+            <input type="text" class="rating" min="0" max="5" data-step="0.5" name="rate" />
             @*@Html.TextBoxFor(m => m.Rate, new { @class = "rating", @min = "0", @max = "5", @step = "0.5", @type = "number" })*@
         </div>
         <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
     </div>
+
 }
