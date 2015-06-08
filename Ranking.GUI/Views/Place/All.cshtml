@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Szukaj";
+    ViewBag.Title = "myBestPlace";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -24,9 +24,11 @@
                     </div>
                 </a>
             </div>
-            <button type="button" class="btn btn-primary btn-arrow-left" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"><</button>
-            <span>{{currentPage+1}}/{{numberOfPages()}}</span>
-            <button type="button" class="btn btn-primary btn-arrow-right" ng-disabled="currentPage >= places.length/numPerPage - 1" ng-click="currentPage=currentPage+1">></button>
+            <div style="display:block; margin: 0 auto; text-align: center; width: 50%; margin-bottom: 10px; margin-top: 10px;">
+                <button type="button" class="btn btn-primary btn-arrow-left" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"><</button>
+                <span>{{currentPage+1}}/{{numberOfPages()}}</span>
+                <button type="button" class="btn btn-primary btn-arrow-right" ng-disabled="currentPage >= places.length/numPerPage - 1" ng-click="currentPage=currentPage+1">></button>
+            </div>
         </div>
     </div>
     <div ng-controller="Pagination">

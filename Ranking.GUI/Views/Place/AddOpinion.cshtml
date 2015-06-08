@@ -12,22 +12,22 @@
 
         <div id="nickLabel">
             @Html.LabelFor(m => m.Nick)
-            @Html.TextBoxFor(m => m.Nick)
+            @Html.TextBoxFor(m => m.Nick, new { @required = "required" })
         </div>
 
         <div id="emailLabel">
             @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @type = "email", @required = "required" })
         </div>
 
         <div id="opinionLabel">
             @Html.LabelFor(m => m.Content)
-            @Html.TextAreaFor(m => m.Content)
+            @Html.TextAreaFor(m => m.Content, new { @required = "required" })
         </div>
 
         <div id="gradeLabel">
-            <input type="text" class="rating" min="0" max="5" data-step="0.5" name="rate" />
-            @*@Html.TextBoxFor(m => m.Rate, new { @class = "rating", @min = "0", @max = "5", @step = "1", @type = "number" })*@
+            <input type="text" class="rating" min="0" max="5" data-step="0.5" name="rate" required />
+            @*@Html.TextBoxFor(m => m.Rate, new { @class = "rating", @min = "0", @max = "5", @step = "0.5", @type = "number" })*@
         </div>
         <input type="submit" value="Dodaj Opinie" class="btn btn-default" />
     </div>

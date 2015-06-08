@@ -1,7 +1,7 @@
 ﻿@model Ranking.GUI.ViewModels.Places.AddPlaceViewModel
 
 @{
-    ViewBag.Title = "Dodaj";
+    ViewBag.Title = "Dodaj - myBestPlace";
 }
 
 <span class="capital">Dodaj swoje miejsce</span>
@@ -16,27 +16,27 @@
         <div class="addLabel">
             <div>
                 @Html.LabelFor(m => m.Name)
-                @Html.TextBoxFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @required = "required" })
             </div>
 
             <div>
                 @Html.LabelFor(m => m.City)
-                @Html.TextBoxFor(m => m.City)
+                @Html.TextBoxFor(m => m.City, new { @required = "required" })
             </div>
 
             <div>
                 @Html.LabelFor(m => m.Address)
-                @Html.TextBoxFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address, new { @required = "required" })
             </div>
 
             <div>
                 @Html.LabelFor(m => m.Telephone)
-                @Html.TextBoxFor(m => m.Telephone)
+                @Html.TextBoxFor(m => m.Telephone, new {@type="tel", @required = "required" })
             </div>
 
             <div>
                 @Html.LabelFor(m => m.Country)
-                @Html.TextBoxFor(m => m.Country)
+                @Html.TextBoxFor(m => m.Country, new { @required = "required" })
             </div>
 
 
@@ -52,13 +52,14 @@
 
         <div id="descript">
             @Html.LabelFor(m => m.Description)
-            @Html.TextAreaFor(m => m.Description)
+            @Html.TextAreaFor(m => m.Description, new { @required = "required" })
 
         </div>
-            <input type="submit" value="Dodaj" class="btn btn-default" />
-        
-}</div>
+        <input type="submit" value="Dodaj" class="btn btn-default" />
 
-        @*<div>
-                @Html.ActionLink("Wróć", "Index")
-            </div>*@
+    }
+</div>
+
+@*<div>
+        @Html.ActionLink("Wróć", "Index")
+    </div>*@
