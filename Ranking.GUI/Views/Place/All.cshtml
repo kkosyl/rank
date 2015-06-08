@@ -6,14 +6,14 @@
 <span class="capital">@ViewBag.Title</span>
 
 <div ng-app="myModule">
-    <div ng-controller="searchCtrl" class="searchView">
+    <div ng-controller="Pagination" class="searchView">
         <input type="text" placeholder="Szukaj po nazwie.." ng-model="search.Name" class="form-control" />
         <input type="text" placeholder="Szukaj wg miasta.." ng-model="search.City" class="form-control" />
         <input type="text" placeholder="Szukaj wg nazwy kraju.." ng-model="search.Country" class="form-control" />
-        <input id="checkSearch"type="checkbox" ng-model="search.Verified" />Tylko zweryfikowane
+        <input id="checkSearch" type="checkbox" ng-model="search.Verified"/>Tylko zweryfikowane
 
         <div class="top">
-            <div id="topTen" ng-repeat="p in places | filter:search">
+            <div id="topTen" ng-repeat="p in places | filter:search | firstPage:currentPage*numPerPage | limitTo:numPerPage">
                 <a ng-click="onSelect(p)">
                     <div id="midImg"><img src="~/{{p.Picture}}" /></div>
                     <div id="midDescription">
@@ -21,31 +21,15 @@
                         <p>{{p.City}}, {{p.Country}}</p>
                         @*<input class="rating" value="@item.Rate" data-disabled="true">*@
                         <span class="doubleGrade"><span class=" glyphicon glyphicon-star"></span> {{p.Rate}}</span>
-
                     </div>
                 </a>
             </div>
+            <button type="button" class="btn btn-primary btn-arrow-left" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"><</button>
+            <span>{{currentPage+1}}/{{numberOfPages()}}</span>
+            <button type="button" class="btn btn-primary btn-arrow-right" ng-disabled="currentPage >= places.length/numPerPage - 1" ng-click="currentPage=currentPage+1">></button>
         </div>
+    </div>
+    <div ng-controller="Pagination">
 
-
-
-        @*<table>
-                <tbody ng-repeat="p in places | filter:search">
-                    <tr>
-                        <td>
-                            {{p.Name}}
-                        </td>
-                        <td>
-                            {{p.Country}}
-                        </td>
-                        <td>
-                            {{p.City}}
-                        </td>
-                        <td>
-                            <input class="rating" value="{{p.Rate}}" data-disabled="true">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>*@
     </div>
 </div>

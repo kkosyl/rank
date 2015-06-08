@@ -107,9 +107,11 @@ namespace Ranking.GUI.Controllers
         {
             model.PlaceId = id;
             model.Rate = Double.Parse(form["rate"], System.Globalization.CultureInfo.InvariantCulture);
-            if (ModelState["Rate"].Errors.Count > 0)
-                ModelState["Rate"].Errors.Clear();
+            //if (ModelState["Rate"].Errors.Count > 0)
+            //    ModelState["Rate"].Errors.Clear();
 
+            if (ModelState.IsValid && model.Email.Contains('@'))
+            {
                 if (!_userRepository.GetAll().Any(u => u.Nick == model.Nick && u.Email == model.Email))
                 {
                     _userRepository.Add(new User
@@ -134,7 +136,9 @@ namespace Ranking.GUI.Controllers
                 _placeRepository.Get(id).Rate = srednia;
                 _placeRepository.Commit();
 
-            return RedirectToAction("Details", new { id = model.PlaceId });
+                return RedirectToAction("Details", new { id = model.PlaceId });
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -219,9 +223,9 @@ namespace Ranking.GUI.Controllers
             return View(model);
         }
 
-        public ActionResult Search()
+        public ActionResult All(string query)
         {
-            return View();
+            return View(query);
         }
 
         public JsonResult GetPlaces()
@@ -254,7 +258,7 @@ namespace Ranking.GUI.Controllers
 
         public JsonResult PopularCountries()
         {
-            var cities = _placeRepository.GetAll().Where(p=>p.Country != "Polska").Select(p => p.Country).GroupBy(p => p)
+            var cities = _placeRepository.GetAll().Where(p => p.Country != "Polska").Select(p => p.Country).GroupBy(p => p)
                 .Select(places => new { Name = places.Key, Count = places.Count() });
             var result = cities.OrderBy(p => p.Count).Select(p => p.Name).Take(3);
             return Json(result, JsonRequestBehavior.AllowGet);

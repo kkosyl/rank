@@ -888,7 +888,7 @@
     <Content Include="Scripts\NgModule\main.js" />
     <Content Include="Scripts\star-rating.js" />
     <Content Include="Scripts\star-rating.min.js" />
-    <Content Include="Views\Place\Search.cshtml" />
+    <Content Include="Views\Place\All.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
