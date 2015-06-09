@@ -64,7 +64,6 @@
         $scope.numPerPage = 5,
         $scope.maxSize = 5;
 
-
         $http.get('/Place/GetPlaces')
             .success(function (data) {
                 $scope.places = data;

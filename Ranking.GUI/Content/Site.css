@@ -230,7 +230,7 @@ html, body {
     }
 
         #city .capital {
-            font-size: 150%;
+            font-size: 220%;
         }
 
         #city h3 {
@@ -734,6 +734,7 @@ html, body {
         border-bottom: 1px #0477CA solid;
         display: inline-block;
         margin-top: 5px;
+        padding-bottom:5px;
     }
 
         .top #topTen a:hover {

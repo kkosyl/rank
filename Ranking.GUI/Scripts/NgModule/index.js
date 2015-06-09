@@ -1,7 +1,7 @@
 ﻿(function () {
     var myModule = angular.module('myModule');
 
-    myModule.controller('citiesCountriesCtrl', ['$scope', '$http', '$window', '$rootScope', function ($scope, $http, $window, $rootScope) {
+    myModule.controller('citiesCountriesCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
         $http.get('/Place/PolishCities')
         .success(function (data) {
             $scope.polishCities = data;
@@ -18,15 +18,13 @@
             alert("Błąd przy pobieraniu danych");
         });
 
-        //$scope.onCitySelect = function ($city) {
-        //    $rootScope.$broadcast("search", $scope.query = $city);
-        //    $window.location.href = '/Place/Search';
-        //};
-
-        //$scope.onCountrySelect = function ($country) {
-        //    $rootScope.$broadcast("search", $scope.query = $country);
-        //    console.log($country);
-        //    $window.location.href = '/Place/Search';
-        //};
+        $scope.onPlaceSelect = function ($name) {
+            $http({
+                url: "/Place/Popular",
+                method: "GET",
+                params: { name: $name }
+            });
+            //$window.location.href = '/Place/Popular/' + $name;
+        };
     }]);
 })();

@@ -223,9 +223,31 @@ namespace Ranking.GUI.Controllers
             return View(model);
         }
 
-        public ActionResult All(string query)
+        public ActionResult All()
         {
-            return View(query);
+            return View();
+        }
+
+        public ActionResult Popular(string name)
+        {
+            var places = _placeRepository.GetAll().Where(p => p.City == name || p.Country == name).OrderByDescending(p => p.Rate).ToList();
+
+            IList<PlaceListViewModel> model = new List<PlaceListViewModel>();
+
+            foreach (var item in places)
+            {
+                model.Add(new PlaceListViewModel
+                {
+                    City = item.City,
+                    Country = item.Country,
+                    Description = item.Description,
+                    Rate = item.Rate,
+                    Name = item.Name,
+                    Picture = _pictureRepository.GetAll().First(p => p.PlaceId == item.PlaceId).Source,
+                    PlaceId = item.PlaceId
+                });
+            }
+            return View(model);
         }
 
         public JsonResult GetPlaces()

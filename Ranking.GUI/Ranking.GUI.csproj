@@ -929,6 +929,7 @@
     <Content Include="Views\Admin\InitAdmin.cshtml" />
     <Content Include="Views\Admin\LogOff.cshtml" />
     <Content Include="Views\Admin\PlaceManagement.cshtml" />
+    <Content Include="Views\Place\Popular.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "myBestPlace";
 }
+
 <div id="carousel-generic" class="carousel slide">
     <span class="capital">Rekomendowane:</span>
 
@@ -61,17 +62,17 @@
         }
     </div>
 
-    <div id="city" ng-app="myModule" ng-controller="searchCtrl">
-        <span class="capital">Najpopularniejsze miasta:</span>
+    <div id="city" ng-app="myModule" ng-controller="citiesCountriesCtrl">
+        <span class="capital">Popularne:</span>
         <h3>Polska:</h3>
 
         <div ng-repeat="city in polishCities">
-            <li><a ng-click="onCitySelect(city)">&rsaquo;&nbsp;{{city}}</a></li>
+            <li><a ng-click="onPlaceSelect(city)">&rsaquo;&nbsp;{{city}}</a></li>
         </div>
 
         <h3>Świat:</h3>
         <div ng-repeat="country in popularCountries">
-            <li><a ng-click="onCountrySelect(country)">&rsaquo;&nbsp;{{country}}</a></li>
+            <li><a ng-click="onPlaceSelect(country)">&rsaquo;&nbsp;{{country}}</a></li>
         </div>
 
     </div>
